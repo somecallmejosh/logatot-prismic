@@ -2,8 +2,7 @@ import { repositoryName, apiEndpoint } from './slicemachine.config.json';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: true,
-
+  devtools: { enabled: true },
   app: {
     head: {
       title: 'Prismic + Nuxt Minimal Starter',
@@ -17,18 +16,23 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    }
+    },
   },
 
-  modules: ['@nuxtjs/prismic', "@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxtjs/i18n"],
+  modules: [
+    '@nuxtjs/prismic',
+    '@nuxtjs/tailwindcss',
+    '@nuxt/fonts',
+    '@nuxtjs/i18n',
+  ],
   fonts: {
     adobe: {
       id: ['ulf8jji'],
     },
   },
   i18n: {
-    locales: ['en', 'es'],
-    defaultLocale: 'en',
+    locales: ['en-us', 'es-es'],
+    defaultLocale: 'en-us',
   },
   prismic: {
     endpoint: apiEndpoint || repositoryName,
@@ -44,11 +48,11 @@ export default defineNuxtConfig({
           uid: 'home',
           path: '/',
         },
-      ]
-    }
+      ],
+    },
   },
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.js',
-  }
+  },
 })
