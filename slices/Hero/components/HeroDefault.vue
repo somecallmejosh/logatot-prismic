@@ -14,6 +14,7 @@ const props = defineProps(['slice']);
               <div class="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl prose prose-headings:font-display prose-h1:text-4xl md:prose-h1:text-6xl prose-em:text-blue-600 prose-em:not-italic prose-em:block prose-headings:font-normal">
                 <prismic-rich-text
                   :field="slice.primary.headline"
+                  class="font-bold"
                 />
                 <prismic-rich-text
                   :field="slice.primary.content"

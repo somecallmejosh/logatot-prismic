@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import { components } from '~/slices'
+  import { components } from '~/slices'
 
-const { locale } = useI18n({
-  useScope: 'local'
-})
+  const { locale } = useI18n({
+    useScope: 'local'
+  })
 
-const prismic = usePrismic()
-const { data: page } = useAsyncData('index', () =>
-  prismic.client.getByUID('page', 'home', { lang: locale.value })
-)
+  const prismic = usePrismic()
+  const { data: page } = useAsyncData('index', () =>
+    prismic.client.getByUID('page', 'home', { lang: locale.value })
+  )
 
-useHead({
-  title: prismic.asText(page.value?.data.title),
-})
+  useSeoMeta({
+    title: page.value?.data.meta_title,
+    description: page.value?.data.meta_description,
+  })
 </script>
 
 

@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: 'Prismic + Nuxt Minimal Starter',
+      title: 'Welcome to Logatot',
       htmlAttrs: {
         lang: 'en',
       },
@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/fonts',
     '@nuxtjs/i18n',
+    '@nuxt/icon',
   ],
   fonts: {
     adobe: {
