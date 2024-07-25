@@ -1,0 +1,117 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"value": "roof",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eiusmod sit aute deserunt veniam sint. Ut quis ex id veniam veniam aute nostrud. Cillum excepteur eu excepteur quis occaecat magna enim est consectetur quis reprehenderit sit."
+						}
+					}
+				]
+			},
+			"monthly_pricing_headline": {
+				"__TYPE__": "FieldContent",
+				"value": "rule",
+				"type": "Text"
+			},
+			"monthly_pricing_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Officia adipisicing deserunt anim cillum elit cillum id aute elit deserunt exercitation."
+						}
+					}
+				]
+			},
+			"yearly_pricing_headline": {
+				"__TYPE__": "FieldContent",
+				"value": "room",
+				"type": "Text"
+			},
+			"yearly_pricing_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Qui deserunt voluptate irure fugiat proident incididunt enim. Ad ipsum irure ad voluptate aliquip tempor sit culpa ea exercitation nostrud duis culpa laborum."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "partner",
+		"primary": {
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"value": "since",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Est duis et ea proident qui duis esse cillum nostrud commodo aute ipsum qui enim. Labore cupidatat Lorem culpa enim reprehenderit sunt reprehenderit dolor dolor dolor nostrud proident magna. Nisi sit exercitation irure elit fugiat reprehenderit quis qui aute sit cillum laboris quis irure incididunt."
+						}
+					}
+				]
+			},
+			"monthly_pricing_headline": {
+				"__TYPE__": "FieldContent",
+				"value": "bare",
+				"type": "Text"
+			},
+			"monthly_pricing_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ad laboris ea veniam labore cillum esse officia non in tempor do dolore nisi."
+						}
+					}
+				]
+			},
+			"yearly_pricing_headline": {
+				"__TYPE__": "FieldContent",
+				"value": "skill",
+				"type": "Text"
+			},
+			"yearly_pricing_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sunt mollit proident mollit irure ea cupidatat eu adipisicing sint excepteur cillum adipisicing. Duis et adipisicing Lorem tempor magna cillum Lorem Lorem nisi ut nostrud."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

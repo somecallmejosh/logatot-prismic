@@ -1,0 +1,126 @@
+{
+  "id": "registration",
+  "type": "SharedSlice",
+  "name": "Registration",
+  "description": "Registration",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "Headline",
+            "placeholder": ""
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "monthly_pricing_headline": {
+          "type": "Text",
+          "config": {
+            "label": "Monthly Pricing Headline",
+            "placeholder": ""
+          }
+        },
+        "monthly_pricing_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Monthly Pricing Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "yearly_pricing_headline": {
+          "type": "Text",
+          "config": {
+            "label": "Yearly Pricing Headline",
+            "placeholder": ""
+          }
+        },
+        "yearly_pricing_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Yearly Pricing Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "partner",
+      "name": "Partner",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "Headline",
+            "placeholder": ""
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "monthly_pricing_headline": {
+          "type": "Text",
+          "config": {
+            "label": "Monthly Pricing Headline",
+            "placeholder": ""
+          }
+        },
+        "monthly_pricing_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Monthly Pricing Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "yearly_pricing_headline": {
+          "type": "Text",
+          "config": {
+            "label": "Yearly Pricing Headline",
+            "placeholder": ""
+          }
+        },
+        "yearly_pricing_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Yearly Pricing Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

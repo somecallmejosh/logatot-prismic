@@ -1,0 +1,113 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"headline": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Adjective"
+						}
+					}
+				]
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim mollit Lorem ullamco ut elit mollit est anim esse enim mollit proident."
+						}
+					}
+				]
+			},
+			"features": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"feature_item",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Do aliquip laboris dolor. Culpa excepteur excepteur est reprehenderit irure reprehenderit amet in cupidatat proident ex aliquip cupidatat."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"cta_header": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Movie"
+						}
+					}
+				]
+			},
+			"cta_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim quis nostrud culpa."
+						}
+					}
+				]
+			},
+			"cta_bullet_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"cta_item",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Id labore eu nostrud duis ex occaecat Lorem excepteur reprehenderit laboris. Pariatur ullamco anim dolore tempor ad ea et enim. Laboris cupidatat esse mollit."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"cta_link_url": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"cta_link_text": {
+				"__TYPE__": "FieldContent",
+				"value": "near",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

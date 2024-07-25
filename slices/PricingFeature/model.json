@@ -1,0 +1,107 @@
+{
+  "id": "pricing_feature",
+  "type": "SharedSlice",
+  "name": "PricingFeature",
+  "description": "PricingFeature",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Headline",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "features": {
+          "type": "Group",
+          "config": {
+            "label": "Features",
+            "repeat": true,
+            "fields": {
+              "feature_item": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Feature Item",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              }
+            }
+          }
+        },
+        "cta_header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CTA Header",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3,strong,em"
+          }
+        },
+        "cta_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CTA Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "cta_bullet_items": {
+          "type": "Group",
+          "config": {
+            "label": "CTA Bullet Items",
+            "repeat": true,
+            "fields": {
+              "cta_item": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "CTA Item",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              }
+            }
+          }
+        },
+        "cta_link_url": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link URL",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "cta_link_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Link Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

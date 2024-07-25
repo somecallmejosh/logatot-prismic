@@ -1,0 +1,79 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "There"
+						}
+					}
+				]
+			},
+			"feature_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "form",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Deserunt nulla cillum duis veniam occaecat laborum in consequat tempor enim culpa incididunt."
+											}
+										}
+									]
+								}
+							],
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "nuts",
+									"type": "Text"
+								}
+							],
+							[
+								"highlight_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Purple",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt est dolor consectetur in ea commodo pariatur."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

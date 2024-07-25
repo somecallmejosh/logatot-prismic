@@ -1,0 +1,152 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "companyname": {
+        "type": "Text",
+        "config": {
+          "label": "CompanyName",
+          "placeholder": ""
+        }
+      },
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": {
+          "label": "OG Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "main_nav": {
+        "type": "Group",
+        "config": {
+          "label": "Main Nav",
+          "repeat": true,
+          "fields": {
+            "link_text": {
+              "type": "Text",
+              "config": {
+                "label": "Link Text",
+                "placeholder": ""
+              }
+            },
+            "link_url": {
+              "type": "Link",
+              "config": {
+                "label": "Link URL",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "footer_nav_website": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Nav Website",
+          "repeat": true,
+          "fields": {
+            "link_text": {
+              "type": "Text",
+              "config": {
+                "label": "Link Text",
+                "placeholder": ""
+              }
+            },
+            "link_url": {
+              "type": "Link",
+              "config": {
+                "label": "Link URL",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "footer_nav_web_app": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Nav Web App",
+          "repeat": true,
+          "fields": {
+            "link_text": {
+              "type": "Text",
+              "config": {
+                "label": "Link Text",
+                "placeholder": ""
+              }
+            },
+            "link_url": {
+              "type": "Link",
+              "config": {
+                "label": "Link URL",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "facebook_link": {
+        "type": "Link",
+        "config": {
+          "label": "Facebook Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "twitter_link": {
+        "type": "Link",
+        "config": {
+          "label": "Twitter Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "instagram_link": {
+        "type": "Link",
+        "config": {
+          "label": "Instagram Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "linkedin_link": {
+        "type": "Link",
+        "config": {
+          "label": "LinkedIn Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "youtube_link": {
+        "type": "Link",
+        "config": {
+          "label": "Youtube Link",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    }
+  }
+}

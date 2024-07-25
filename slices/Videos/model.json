@@ -1,0 +1,63 @@
+{
+  "id": "videos",
+  "type": "SharedSlice",
+  "name": "Videos",
+  "description": "Videos",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "video": {
+          "type": "Group",
+          "config": {
+            "label": "Video",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              },
+              "video_type": {
+                "type": "Select",
+                "config": {
+                  "label": "Video Type",
+                  "placeholder": "",
+                  "options": [
+                    "Vimeo",
+                    "Youtube"
+                  ],
+                  "default_value": "Vimeo"
+                }
+              },
+              "video": {
+                "type": "Link",
+                "config": {
+                  "label": "Video URL",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "call_to_action",
+  "type": "SharedSlice",
+  "name": "CallToAction",
+  "description": "CallToAction",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "Headline",
+            "placeholder": ""
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,list-item,o-list-item"
+          }
+        },
+        "call_to_action_link": {
+          "type": "Link",
+          "config": {
+            "label": "Call To Action Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "call_to_action_link_text": {
+          "type": "Text",
+          "config": {
+            "label": "Call To Action Link Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "signup",
+      "name": "Signup",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "Headline",
+            "placeholder": ""
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "call_to_action_link": {
+          "type": "Link",
+          "config": {
+            "label": "Call To Action Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "call_to_action_link_text": {
+          "type": "Text",
+          "config": {
+            "label": "Call To Action Link Text",
+            "placeholder": ""
+          }
+        },
+        "signup_button_endpoint": {
+          "type": "Text",
+          "config": {
+            "label": "SIgnup Button Endpoint",
+            "placeholder": ""
+          }
+        },
+        "signup_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Signup Button Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

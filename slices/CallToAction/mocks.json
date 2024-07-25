@@ -1,0 +1,87 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"value": "busy",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laboris anim velit incididunt quis commodo in sunt cillum ullamco cillum anim veniam sint occaecat anim. Sit culpa officia dolor exercitation proident consectetur ipsum nisi non sunt Lorem Lorem officia."
+						}
+					}
+				]
+			},
+			"call_to_action_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"call_to_action_link_text": {
+				"__TYPE__": "FieldContent",
+				"value": "mother",
+				"type": "Text"
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "signup",
+		"primary": {
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"value": "donkey",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consectetur ullamco officia irure eu. Ea excepteur magna occaecat magna deserunt reprehenderit id in proident exercitation."
+						}
+					}
+				]
+			},
+			"call_to_action_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"call_to_action_link_text": {
+				"__TYPE__": "FieldContent",
+				"value": "continued",
+				"type": "Text"
+			},
+			"signup_button_endpoint": {
+				"__TYPE__": "FieldContent",
+				"value": "quickly",
+				"type": "Text"
+			},
+			"signup_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "crowd",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

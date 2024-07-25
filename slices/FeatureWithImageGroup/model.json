@@ -1,0 +1,61 @@
+{
+  "id": "feature_content",
+  "type": "SharedSlice",
+  "name": "FeatureWithImageGroup",
+  "description": "FeatureContent",
+  "variations": [
+    {
+      "id": "sideBySide",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "Headline",
+            "placeholder": ""
+          }
+        },
+        "feature_group": {
+          "type": "Group",
+          "config": {
+            "label": "Feature Group",
+            "repeat": true,
+            "fields": {
+              "header": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading3,strong,em"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Content",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,list-item,o-list-item"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
