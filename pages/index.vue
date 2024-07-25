@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { components } from '~/slices'
 
+const { locale } = useI18n({
+  useScope: 'local'
+})
+
 const prismic = usePrismic()
 const { data: page } = useAsyncData('index', () =>
-  prismic.client.getByUID('page', 'home')
+  prismic.client.getByUID('page', 'home', { lang: locale.value })
 )
 
 useHead({

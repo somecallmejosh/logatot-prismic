@@ -5,7 +5,7 @@
   <header class="bg-white shadow">
     <Bounded class="py-6 flex justify-between">
       <NuxtLink
-        to="/"
+        :to="localePath('index')"
         class="flex items-center"
       >
         <Logo class="h-12 text-blue-600" />
@@ -18,13 +18,14 @@
           :key="item.link_url.id"
         >
           <NuxtLink
-            :to="item.link_url.url"
+            :to="localePath(item.link_url.url)"
             class="text-blue-900 font-semibold"
           >
             {{ item.link_text }}
           </NuxtLink>
         </li>
       </ul>
+      <LocaleSelection />
     </Bounded>
   </header>
 </template>
