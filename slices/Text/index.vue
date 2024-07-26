@@ -9,12 +9,14 @@ defineProps(getSliceComponentProps<Content.RichTextSlice>(
 </script>
 
 <template>
-  <section>
-    <PrismicRichText
-      :field="slice.primary.content"
-      class="richtext prose prose-headings:font-display"
-    />
-  </section>
+  <div class="py-12 lg:py-24">
+    <Bounded>
+      <PrismicRichText
+        :field="slice.primary.content"
+        class="richtext prose prose-headings:font-display mx-auto"
+      />
+    </Bounded>
+  </div>
 </template>
 
 <style scoped>
