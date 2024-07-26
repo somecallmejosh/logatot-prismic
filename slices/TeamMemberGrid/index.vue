@@ -27,6 +27,8 @@ defineProps(
           <li class="space-y-4">
             <PrismicImage
               :field="item.image"
+              :imgix-params="{ fit: 'crop', w: 405, h: 376, dpr: 2, format: 'webp' }"
+              loading="lazy"
               class="aspect-[14/13] w-full rounded-2xl object-cover"
             />
             <h3 class="lg:text-xl tracking-wider font-display text-blue-950 dark:text-white flex items-center gap-2 font-bold mb-0">

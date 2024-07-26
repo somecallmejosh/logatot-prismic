@@ -21,66 +21,69 @@ const props = defineProps(['slice']);
                   class="max-w-md lg:max-w-none"
                 />
                 <div class="flex items-center mt-10 gap-x-6 not-prose">
-                  <a
-                    :href="slice.primary.call_to_action_1.url"
+                  <PrismicLink
+                    :field="slice.primary.call_to_action_1"
                     class="border-2 rounded-md font-bold inline-flex gap-1 items-center transition-all duration-150 ease-in-out focus:outline-none focus-visible:outline-2 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-600 border-blue-600 bg-blue-600 text-white hover:bg-blue-500 hover:border-blue-500 px-3 py-1"
-                  >{{ slice.primary.call_to_action_1_text }}</a>
-                  <a
-                    :href="slice.primary.call_to_action_1.url"
-                    target="_blank"
-                    rel="nofollow"
+                  >
+                    {{ slice.primary.call_to_action_1_text }}
+                  </PrismicLink>
+                  <PrismicLink
+                    :field="slice.primary.call_to_action_2"
                     class="text-sm font-semibold leading-6 text-gray-900"
-                  >{{ slice.primary.call_to_action_2_text }} <span aria-hidden="true">→</span></a>
+                  >
+                    {{ slice.primary.call_to_action_2_text }} <span aria-hidden="true">→</span>
+                  </PrismicLink>
                 </div>
               </div>
               <div class="flex justify-end gap-8 mt-14 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                 <div class="flex-none pt-32 ml-auto space-y-8 w-44 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                   <div class="relative">
-                    <img
-                      :alt="slice.primary.images[0].image_1.alt"
+                    <PrismicImage
+                      :field="slice.primary.images[0].image_1"
                       loading="lazy"
-                      :src="slice.primary.images[0].image_1.url"
+                      :imgix-params="{ fit: 'crop', ar: '2:3', w: 176, h: 264, dpr: 2, format: 'webp' }"
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    >
+                    />
                     <div class="absolute inset-0 pointer-events-none rounded-xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
                 </div>
                 <div class="flex-none mr-auto space-y-8 w-44 sm:mr-0 sm:pt-52 lg:pt-36">
                   <div class="relative">
-                    <img
-                      :alt="slice.primary.images[0].image_2.alt"
+                    <PrismicImage
+                      :field="slice.primary.images[0].image_2"
+                      :imgix-params="{ fit: 'crop', ar: '2:3', w: 176, h: 264, dpr: 2, format: 'webp' }"
                       loading="lazy"
-                      :src="slice.primary.images[0].image_2.url"
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    >
+                    />
                     <div class="absolute inset-0 pointer-events-none rounded-xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
                   <div class="relative">
-                    <img
-                      :alt="slice.primary.images[0].image_3.alt"
+                    <PrismicImage
+                      :field="slice.primary.images[0].image_3"
+                      :imgix-params="{ fit: 'crop', ar: '2:3', w: 176, h: 264, dpr: 2, format: 'webp' }"
                       loading="lazy"
-                      :src="slice.primary.images[0].image_3.url"
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    >
+                    />
                     <div class="absolute inset-0 pointer-events-none rounded-xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
                 </div>
                 <div class="flex-none pt-32 space-y-8 w-44 sm:pt-0">
                   <div class="relative">
-                    <img
-                      :alt="slice.primary.images[0].image_4.alt"
+                    <PrismicImage
+                      :field="slice.primary.images[0].image_4"
+                      :imgix-params="{ fit: 'crop', ar: '2:3', w: 176, h: 264, dpr: 2, format: 'webp' }"
                       loading="lazy"
-                      :src="slice.primary.images[0].image_4.url"
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    >
+                    />
                     <div class="absolute inset-0 pointer-events-none rounded-xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
                   <div class="relative">
-                    <img
-                      :alt="slice.primary.images[0].image_5.alt"
-                      :src="slice.primary.images[0].image_5.url"
+                    <PrismicImage
+                      :field="slice.primary.images[0].image_5"
+                      :imgix-params="{ fit: 'crop', ar: '2:3', w: 176, h: 264, dpr: 2, format: 'webp' }"
+                      loading="lazy"
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    >
+                    />
                     <div class="absolute inset-0 pointer-events-none rounded-xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
                 </div>

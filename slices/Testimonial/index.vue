@@ -59,7 +59,9 @@ defineProps(
       <figcaption class="flex items-center mt-10 gap-x-6">
         <PrismicImage
           :field="slice.primary.image"
-          class="w-12 h-12 border-2 rounded-full bg-gray-50 border-blue-200"
+          :imgix-params="{ fit: 'crop', w: 64, h: 64, dpr: 2, format: 'webp' }"
+          loading="lazy"
+          class="w-16 h-16 border-2 rounded-full bg-gray-50 border-blue-200"
         />
         <div class="text-sm leading-6">
           <div class="font-semibold text-gray-900">
