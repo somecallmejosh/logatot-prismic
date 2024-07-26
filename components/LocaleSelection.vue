@@ -13,29 +13,25 @@
       <li>
         <a
           :href="switchLocalePath('en-us')"
-          class="flex items-center gap-1 p-2 rounded bg-blue-50/50 hover:bg-blue-50"
+          class="flex items-center p-1 rounded-full border  hover:bg-blue-50"
+          :class="locale == 'en-us' ? 'border-blue-500/100' : 'border-blue-500/20'"
         >
-          <template v-if="locale == 'en-us'">
-            <Icon
-              name="ic:sharp-check"
-              class="text-blue-500 h-5 w-5"
-            />
-          </template>
-          English
+          <Icon
+            name="emojione:flag-for-united-states"
+            class="h-6 w-6"
+          />
         </a>
       </li>
       <li>
         <a
           :href="switchLocalePath('es-es')"
-          class="flex items-center gap-1 p-2 rounded bg-blue-50/50 hover:bg-blue-50"
+          class="flex items-center p-1 rounded-full border  hover:bg-blue-50"
+          :class="locale == 'es-es' ? 'border-blue-500/100' : 'border-blue-500/20'"
         >
-          <template v-if="locale == 'es-es'">
-            <Icon
-              name="ic:sharp-check"
-              class="text-blue-500 h-5 w-5"
-            />
-          </template>
-          Espanol
+          <Icon
+            name="emojione:flag-for-spain"
+            class="text-blue-500 h-6 w-6"
+          />
         </a>
       </li>
     </ul>
