@@ -33,7 +33,10 @@
         </button>
       </div>
       <nav>
-        <ul class="py-6 divide-y divide-blue-50">
+        <ul
+          class="py-6 divide-y divide-blue-50"
+          @click="toggleOffscreen"
+        >
           <li
             v-for="item in settings.data.footer_nav_website"
             :key="item.link_url.id"
@@ -60,7 +63,9 @@
         <span class="sr-only">Home Page</span>
       </NuxtLink>
 
-      <ul class="items-center gap-4 hidden lg:flex">
+      <ul
+        class="items-center gap-4 hidden lg:flex"
+      >
         <li
           v-for="item in settings.data.main_nav"
           :key="item.link_url.id"

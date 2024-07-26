@@ -11,8 +11,8 @@
   >
     <ul class="flex items-center gap-2">
       <li>
-        <NuxtLink
-          :to="switchLocalePath('en-us')"
+        <a
+          :href="switchLocalePath('en-us')"
           class="flex items-center gap-1 p-2 rounded bg-blue-50/50 hover:bg-blue-50"
         >
           <template v-if="locale == 'en-us'">
@@ -22,11 +22,11 @@
             />
           </template>
           English
-        </NuxtLink>
+        </a>
       </li>
       <li>
-        <NuxtLink
-          :to="switchLocalePath('es-es')"
+        <a
+          :href="switchLocalePath('es-es')"
           class="flex items-center gap-1 p-2 rounded bg-blue-50/50 hover:bg-blue-50"
         >
           <template v-if="locale == 'es-es'">
@@ -36,7 +36,7 @@
             />
           </template>
           Espanol
-        </NuxtLink>
+        </a>
       </li>
     </ul>
   </nav>
