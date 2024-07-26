@@ -11,7 +11,7 @@ const props = defineProps(['slice']);
         <div class="overflow-hidden">
           <div class="px-6 pt-12 pb-16 mx-auto max-w-7xl lg:px-0 md:pt-24 lg:pt-32">
             <div class="max-w-2xl mx-auto gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-              <div class="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl prose prose-headings:font-display prose-h1:text-4xl md:prose-h1:text-6xl prose-em:text-blue-600 prose-em:not-italic prose-em:block prose-headings:font-normal">
+              <div class="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl prose prose-headings:font-display prose-h1:text-4xl md:prose-h1:text-6xl prose-em:text-blue-600 prose-em:not-italic prose-em:block">
                 <prismic-rich-text
                   :field="slice.primary.headline"
                   class="font-bold"

@@ -13,7 +13,10 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'format-detection', content: 'telephone=no' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'stylesheet', href: 'https://use.typekit.net/ulf8jji.css' },
+      ],
     },
   },
 
@@ -24,11 +27,6 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/icon',
   ],
-  fonts: {
-    adobe: {
-      id: ['ulf8jji'],
-    },
-  },
   i18n: {
     locales: ['en-us', 'es-es'],
     defaultLocale: 'en-us',
