@@ -32,7 +32,7 @@
     />
     <div
       :class="offscreenVisible ? 'translate-x-0' : 'translate-x-full'"
-      class="fixed top-0 right-0 max-w-72 w-full bg-white h-screen shadow-xl p-4 pb-0 transition-transform duration-300 ease-in-out transform z-50 flex flex-col overflow-y-scroll"
+      class="fixed top-0 right-0 max-w-96 w-full bg-white h-screen max-h-screen shadow-xl p-4 pb-0 transition-transform duration-300 ease-in-out transform z-50 flex flex-col overflow-y-scroll"
     >
       <div class="flex justify-between items-center gap-2 mb-8">
         <Logo class="text-blue-600 h-12" />
