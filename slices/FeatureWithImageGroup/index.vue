@@ -29,7 +29,7 @@ defineProps(
           <div class="basis-3/5 lg:order-1 ">
             <PrismicImage
               :field="item.image"
-              :imgix-params="{ fit: 'crop', w: 593, h: 298, dpr: 2, format: 'webp' }"
+              :imgix-params="{ fit: 'crop', w: 593, h: 298, dpr: 2, format: 'webp', q: 10 }"
               loading="lazy"
               class="w-full border border-gray-100 shadow lg:rounded-lg lg:shadow-lg shadow-blue-800/10"
             />

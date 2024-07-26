@@ -59,7 +59,8 @@ defineProps(
       <figcaption class="flex items-center mt-10 gap-x-6">
         <PrismicImage
           :field="slice.primary.image"
-          :imgix-params="{ fit: 'crop', w: 64, h: 64, dpr: 2, format: 'webp' }"
+          :imgix-params="{fit: 'crop', w: 64, h: 64, dpr: 2, format: 'webp', q: 50
+          }"
           loading="lazy"
           class="w-16 h-16 border-2 rounded-full bg-gray-50 border-blue-200"
         />

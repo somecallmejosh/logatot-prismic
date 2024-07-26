@@ -52,6 +52,8 @@ const props = defineProps(['slice']);
                     <PrismicImage
                       :field="slice.primary.images[0].image_2"
                       :imgix-params="{ fit: 'crop', ar: '2:3', w: 176, h: 264, dpr: 2, format: 'webp' }"
+                      height="264"
+                      width="176"
                       loading="lazy"
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                     />
@@ -61,6 +63,8 @@ const props = defineProps(['slice']);
                     <PrismicImage
                       :field="slice.primary.images[0].image_3"
                       :imgix-params="{ fit: 'crop', ar: '2:3', w: 176, h: 264, dpr: 2, format: 'webp' }"
+                      height="264"
+                      width="176"
                       loading="lazy"
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                     />
@@ -72,6 +76,8 @@ const props = defineProps(['slice']);
                     <PrismicImage
                       :field="slice.primary.images[0].image_4"
                       :imgix-params="{ fit: 'crop', ar: '2:3', w: 176, h: 264, dpr: 2, format: 'webp' }"
+                      height="264"
+                      width="176"
                       loading="lazy"
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                     />
@@ -81,6 +87,8 @@ const props = defineProps(['slice']);
                     <PrismicImage
                       :field="slice.primary.images[0].image_5"
                       :imgix-params="{ fit: 'crop', ar: '2:3', w: 176, h: 264, dpr: 2, format: 'webp' }"
+                      height="264"
+                      width="176"
                       loading="lazy"
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                     />
