@@ -1,3 +1,14 @@
+<script setup>
+  const { locale } = useI18n({
+    useScope: 'local'
+  })
+
+  useHead({
+    htmlAttrs: {
+      lang: locale.value,
+    },
+  })
+</script>
 <template>
   <div class="flex flex-col min-h-screen">
     <PageHeader />
