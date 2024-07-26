@@ -11,8 +11,11 @@
   )
 
   useSeoMeta({
-    title: page.value?.data.meta_title,
-    description: page.value?.data.meta_description,
+    title: () => page.value?.data.meta_title,
+    description: () => page.value?.data.meta_description,
+    ogTitle: () => page.value?.data.meta_title,
+    ogDescription: () => page.value?.data.meta_description,
+    ogImage: () => page.value?.data.og_image.url,
   })
 </script>
 
