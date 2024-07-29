@@ -53,6 +53,11 @@ export default defineNuxtConfig({
           uid: 'home',
           path: '/',
         },
+        {
+          type: 'page',
+          uid: 'video-learning',
+          path: '/video-learning-unauthorized',
+        },
       ],
     },
   },
