@@ -22,7 +22,7 @@
 
 <template>
   <SliceZone
-    wrapper="main"
+    wrapper="div"
     :slices="page?.data.slices ?? []"
     :components="components"
     class="w-full space-y-16"

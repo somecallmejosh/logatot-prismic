@@ -16,6 +16,13 @@
     ogDescription: () => page.value?.data.meta_description,
     ogImage: () => page.value?.data.og_image.url,
   })
+
+  // Apply middleware only to specific pages
+  if (route.params.uid === 'video-learning') {
+    definePageMeta({
+      middleware: 'auth',
+    });
+  }
 </script>
 
 
