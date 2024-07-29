@@ -17,6 +17,14 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'stylesheet', href: 'https://use.typekit.net/ulf8jji.css' },
       ],
+      script: [
+        {
+          src: '//js-na1.hs-scripts.com/46510803.js',
+          id: 'hs-script-loader',
+          async: true,
+          defer: true,
+        },
+      ],
     },
   },
 
