@@ -13,6 +13,7 @@ export const components = defineSliceZoneComponents({
   feature_grid: defineAsyncComponent(() => import("./FeatureGrid/index.vue")),
   hero: defineAsyncComponent(() => import("./Hero/index.vue")),
   i_frame: defineAsyncComponent(() => import("./IFrame/index.vue")),
+
   page_header: defineAsyncComponent(() => import("./PageHeader/index.vue")),
   pricing_feature: defineAsyncComponent(
     () => import("./PricingFeature/index.vue"),

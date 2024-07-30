@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply inline-flex items-center justify-center gap-1 px-3 py-1 font-bold transition-all duration-150 ease-in-out border-2 rounded-md focus:outline-none focus-visible:outline-2 focus-visible:outline focus-visible:outline-offset-2 shrink-0;
+}
+
+.btn-primary {
+  @apply text-white bg-blue-600 border-blue-600 focus-visible:outline-blue-600 hover:bg-blue-500 hover:border-blue-500;
+}
+
+.btn-outline {
+  @apply text-blue-600 border-blue-600 focus-visible:outline-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white;
+}
+label {
+  @apply block mb-1.5 font-semibold text-gray-900;
+}
+.input-field {
+  @apply h-10;
+}
+
+.input-field, textarea  {
+  @apply border-gray-300 text-gray-900 focus:outline-none focus-visible:ring-blue-600 focus:border-blue-600 placeholder:italic placeholder:text-slate-400 sm:text-sm block w-full px-3 bg-white border rounded shadow-sm
+}
+
+textarea {
+  @apply p-4 min-h-24;
+}
