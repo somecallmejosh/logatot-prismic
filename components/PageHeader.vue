@@ -1,18 +1,35 @@
 <script setup lang="ts">
-    const { t } = useI18n({
-    useScope: 'local'
-  })
-  const settings = useSettings()
-  const offscreenVisible = ref(false)
-  const toggleOffscreen = () => {
-    offscreenVisible.value = !offscreenVisible.value
-    if (offscreenVisible.value) {
-      document.body.style.overflow = 'hidden'
-    } else {
+const { t } = useI18n({
+  useScope: 'local'
+})
+const settings = useSettings()
+const offscreenVisible = ref(false)
+const toggleOffscreen = (event) => {
+  event.stopPropagation()
+  offscreenVisible.value = !offscreenVisible.value
+  if (offscreenVisible.value) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
+}
+  const closeMenu = (event: MouseEvent) => {
+    const offscreenVisibleElement = document.querySelector('#slide-over-menu')
+    if (offscreenVisibleElement && !offscreenVisibleElement.contains(event.target as Node)) {
+      offscreenVisible.value = false
       document.body.style.overflow = ''
     }
   }
+
+  onMounted(() => {
+    document.addEventListener('click', closeMenu)
+  })
+
+  onUnmounted(() => {
+    document.removeEventListener('click', closeMenu)
+  })
 </script>
+
 <i18n lang="json">
 {
   "en": {
@@ -23,98 +40,119 @@
   }
 }
 </i18n>
-<template>
-  <div class="relative z-100">
-    <div
-      :class="offscreenVisible ? 'translate-x-0' : 'translate-x-full'"
-      class="fixed inset-0 bg-black/10"
-      @click="toggleOffscreen"
-    />
-    <div
-      :class="offscreenVisible ? 'translate-x-0' : 'translate-x-full'"
-      class="fixed top-0 right-0 z-50 flex flex-col w-full h-screen max-h-screen p-4 pb-0 transition-transform duration-300 ease-in-out transform bg-white shadow-xl"
-    >
-      <div class="flex items-center justify-between gap-2 mb-2">
-        <Logo class="h-10 text-blue-600" />
-        <button>
-          <Icon
-            name="mdi:close-circle-outline"
-            class="text-blue-500 h-7 w-7"
-            @click="toggleOffscreen"
-          />
-          <span class="sr-only">Toggle Mobile Menu Visibility</span>
-        </button>
-      </div>
-      <div class="flex flex-col flex-1 gap-4 overflow-y-scroll">
-        <nav>
-          <ul
-            class="px-4 divide-y divide-blue-50"
-            @click="toggleOffscreen"
-          >
-            <li
-              v-for="item in settings.data.footer_nav_website"
-              :key="item.link_url.id"
-            >
-              <NuxtLink
-                :to="localePath(item.link_url.url)"
-                class="block py-4 font-semibold text-blue-900"
-              >
-                {{ item.link_text }}
-              </NuxtLink>
-            </li>
-          </ul>
-        </nav>
-        <nav>
-          <ul
-            class="px-4 divide-y rounded-lg divide-blue-50 bg-blue-50/50"
-            @click="toggleOffscreen"
-          >
-            <li>
-              <a
-                :href="settings.data.footer_nav_web_app[0].link_url.url"
-                target="_blank"
-                class="flex items-center gap-3 py-4 font-semibold text-blue-900"
-              >
-                <Icon
-                  name="material-symbols:location-home"
-                  class="w-6 h-6"
-                />
-                {{ settings.data.footer_nav_web_app[0].link_text }}
-              </a>
-            </li>
-            <li>
-              <a
-                :href="settings.data.footer_nav_web_app[1].link_url.url"
-                target="_blank"
-                class="flex items-center gap-3 py-4 font-semibold text-blue-900"
-              >
-                <Icon
-                  name="material-symbols:family-restroom-sharp"
-                  class="w-6 h-6"
-                />
-                {{ settings.data.footer_nav_web_app[1].link_text }}
-              </a>
-            </li>
-            <li>
-              <a
-                :href="settings.data.footer_nav_web_app[2].link_url.url"
-                target="_blank"
-                class="flex items-center gap-3 py-4 font-semibold text-blue-900"
-              >
-                <Icon
-                  name="mdi:key-variant"
-                  class="w-6 h-6"
-                />{{ settings.data.footer_nav_web_app[2].link_text }}</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
 
-      <div class="flex items-center justify-between py-2 pl-6 pr-4 -mx-4 bg-blue-50/50">
-        <p class="font-semibold">
-          {{ t('language') }}
-        </p>
-        <LocaleSelection />
+<template>
+  <div
+    class="relative"
+    :class="offscreenVisible ? 'z-10' : 'z-0'"
+    aria-labelledby="slide-over-title"
+    role="dialog"
+    aria-modal="true"
+  >
+    <!-- Background backdrop, show/hide based on slide-over state. -->
+    <div
+      v-if="offscreenVisible"
+      class="fixed inset-0 bg-black/10"
+    />
+
+    <div class="fixed inset-0 overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div
+          id="slide-over-menu"
+          class="fixed inset-y-0 right-0 flex max-w-full pl-10 transition-transform duration-200 pointer-events-none"
+          :class="offscreenVisible ? 'translate-x-0' : 'translate-x-full'"
+        >
+          <div class="w-screen max-w-md pointer-events-auto">
+            <div class="flex flex-col h-full bg-white divide-y divide-gray-200 shadow-xl">
+              <div class="flex flex-col flex-1 min-h-0 py-6 overflow-y-scroll">
+                <div class="px-4 sm:px-6">
+                  <div class="flex items-start justify-between">
+                    <Logo class="h-10 text-blue-600" />
+                    <div class="flex items-center ml-3 h-7">
+                      <button @click="toggleOffscreen">
+                        <Icon
+                          name="mdi:close-circle-outline"
+                          class="text-blue-500 h-7 w-7"
+                        />
+                        <span class="sr-only">Toggle Mobile Menu Visibility</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="relative flex-1 px-4 mt-6 sm:px-6">
+                  <nav class="mb-6">
+                    <ul
+                      class="px-4 divide-y divide-blue-50"
+                      @click="toggleOffscreen"
+                    >
+                      <li
+                        v-for="item in settings.data.footer_nav_website"
+                        :key="item.link_url.id"
+                      >
+                        <NuxtLink
+                          :to="localePath(item.link_url.url)"
+                          class="block py-4 font-semibold text-blue-900"
+                        >
+                          {{ item.link_text }}
+                        </NuxtLink>
+                      </li>
+                    </ul>
+                  </nav>
+                  <nav>
+                    <ul
+                      class="px-4 divide-y rounded-lg divide-blue-50 bg-blue-50/50"
+                      @click="toggleOffscreen"
+                    >
+                      <li>
+                        <a
+                          :href="settings.data.footer_nav_web_app[0].link_url.url"
+                          target="_blank"
+                          class="flex items-center gap-3 py-4 font-semibold text-blue-900"
+                        >
+                          <Icon
+                            name="material-symbols:location-home"
+                            class="w-6 h-6"
+                          />
+                          {{ settings.data.footer_nav_web_app[0].link_text }}
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          :href="settings.data.footer_nav_web_app[1].link_url.url"
+                          target="_blank"
+                          class="flex items-center gap-3 py-4 font-semibold text-blue-900"
+                        >
+                          <Icon
+                            name="material-symbols:family-restroom-sharp"
+                            class="w-6 h-6"
+                          />
+                          {{ settings.data.footer_nav_web_app[1].link_text }}
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          :href="settings.data.footer_nav_web_app[2].link_url.url"
+                          target="_blank"
+                          class="flex items-center gap-3 py-4 font-semibold text-blue-900"
+                        >
+                          <Icon
+                            name="mdi:key-variant"
+                            class="w-6 h-6"
+                          />{{ settings.data.footer_nav_web_app[2].link_text }}</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <div class="flex justify-between flex-shrink-0 px-4 py-4">
+                <p class="font-semibold">
+                  {{ t('language') }}
+                </p>
+                <LocaleSelection />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -158,6 +196,7 @@
     </Bounded>
   </header>
 </template>
+
 <style scoped>
 .router-link-exact-active {
   @apply text-blue-600
