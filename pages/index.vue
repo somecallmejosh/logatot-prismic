@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
   import { components } from '~/slices'
 
   const { locale } = useI18n({
