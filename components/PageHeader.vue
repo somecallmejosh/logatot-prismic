@@ -1,18 +1,20 @@
 <script setup lang="ts">
-const { t } = useI18n({
-  useScope: 'local'
-})
-const settings = useSettings()
-const offscreenVisible = ref(false)
-const toggleOffscreen = (event) => {
-  event.stopPropagation()
-  offscreenVisible.value = !offscreenVisible.value
-  if (offscreenVisible.value) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = ''
+  const { t } = useI18n({
+    useScope: 'local'
+  })
+  const settings = useSettings()
+  const offscreenVisible = ref(false)
+
+  const toggleOffscreen = (event) => {
+    event.stopPropagation()
+    offscreenVisible.value = !offscreenVisible.value
+    if (offscreenVisible.value) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
   }
-}
+
   const closeMenu = (event: MouseEvent) => {
     const offscreenVisibleElement = document.querySelector('#slide-over-menu')
     if (offscreenVisibleElement && !offscreenVisibleElement.contains(event.target as Node)) {
@@ -44,7 +46,7 @@ const toggleOffscreen = (event) => {
 <template>
   <div
     class="relative"
-    :class="offscreenVisible ? 'z-10' : 'z-0'"
+    :class="offscreenVisible ? 'z-10' : 'z-[-10]'"
     aria-labelledby="slide-over-title"
     role="dialog"
     aria-modal="true"

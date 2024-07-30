@@ -12,7 +12,6 @@ const props = defineProps(
 );
 
 const convertVimeoUrl = (url) => {
-  console.log("Processing URL:", url); // Debugging line
   const regex = /https:\/\/vimeo.com\/(\d+)\/([a-z0-9]+)/i;
   const match = url.match(regex);
 
@@ -44,7 +43,7 @@ const setActiveVideo = (url, description) => {
     <Bounded>
       <div class="grid gap-6 lg:grid-cols-7">
         <div class="lg:col-span-5">
-          <div class="bg-white rounded-xl shadow not-prose sticky top-24">
+          <div class="sticky bg-white shadow rounded-xl not-prose top-24">
             <div style="padding:48.8% 0 0 0;position:relative; width: 100%;">
               <iframe
                 :src="activeVideo"
@@ -54,20 +53,20 @@ const setActiveVideo = (url, description) => {
               />
             </div>
             <template v-if="activeVideoDescription">
-              <p class="bg-blue-100 py-2 px-4 rounded-b-lg mt-6">
+              <p class="px-4 py-2 mt-6 bg-blue-100 rounded-b-lg">
                 {{ activeVideoDescription }}
               </p>
             </template>
           </div>
         </div>
-        <ul class="lg:col-span-2 divide-y divide-blue-100">
+        <ul class="divide-y divide-blue-100 lg:col-span-2">
           <li
             v-for="(video, index) in slice.primary.video"
             :key="index"
           >
             <button
               v-if="video.video && video.video.url"
-              class="text-left p-2 hover:bg-blue-50 block w-full"
+              class="block w-full p-2 text-left hover:bg-blue-50"
               :class="{ 'font-bold bg-blue-50': activeVideo === convertVimeoUrl(video.video.url) }"
               @click="setActiveVideo(convertVimeoUrl(video.video.url), video.description)"
             >
