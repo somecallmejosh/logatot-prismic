@@ -4,6 +4,67 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type BlogDocumentDataSlicesSlice = RichTextSlice;
+
+/**
+ * Content for Blog documents
+ */
+interface BlogDocumentData {
+  /**
+   * Slice Zone field in *Blog*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog document from Prismic
+ *
+ * - **API ID**: `blog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+
 type PageDocumentDataSlicesSlice =
   | PricingFeatureSlice
   | FeatureContentSlice
@@ -320,7 +381,7 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = PageDocument | SettingsDocument;
+export type AllDocumentTypes = BlogDocument | PageDocument | SettingsDocument;
 
 /**
  * Primary content in *CallToAction → Default → Primary*
@@ -1475,11 +1536,11 @@ export type RegistrationSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Text → Longform → Primary*
+ * Primary content in *Text → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
   /**
-   * Content field in *Text → Longform → Primary*
+   * Content field in *Text → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Lorem ipsum...
@@ -1490,7 +1551,7 @@ export interface RichTextSliceDefaultPrimary {
 }
 
 /**
- * Longform variation for Text Slice
+ * Default variation for Text Slice
  *
  * - **API ID**: `default`
  * - **Description**: RichText
@@ -1503,39 +1564,9 @@ export type RichTextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Text → Centered Call Out → Primary*
- */
-export interface RichTextSliceCenteredCallOutPrimary {
-  /**
-   * Content field in *Text → Centered Call Out → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.centeredCallOut.primary.content
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  content: prismic.RichTextField;
-}
-
-/**
- * Centered Call Out variation for Text Slice
- *
- * - **API ID**: `centeredCallOut`
- * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type RichTextSliceCenteredCallOut = prismic.SharedSliceVariation<
-  "centeredCallOut",
-  Simplify<RichTextSliceCenteredCallOutPrimary>,
-  never
->;
-
-/**
  * Slice variation for *Text*
  */
-type RichTextSliceVariation =
-  | RichTextSliceDefault
-  | RichTextSliceCenteredCallOut;
+type RichTextSliceVariation = RichTextSliceDefault;
 
 /**
  * Text Shared Slice
@@ -1844,6 +1875,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogDocument,
+      BlogDocumentData,
+      BlogDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -1902,10 +1936,8 @@ declare module "@prismicio/client" {
       RegistrationSlicePartner,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
-      RichTextSliceCenteredCallOutPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
-      RichTextSliceCenteredCallOut,
       TeamMemberGridSlice,
       TeamMemberGridSliceDefaultPrimaryTeamMembersItem,
       TeamMemberGridSliceDefaultPrimary,

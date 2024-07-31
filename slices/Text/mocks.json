@@ -21,28 +21,5 @@
 				"value": []
 			}
 		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "centeredCallOut",
-		"primary": {
-			"content": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Voluptate nisi elit occaecat fugiat qui labore non commodo id anim enim duis officia. Excepteur proident amet enim ut consequat consequat incididunt."
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
 	}
 ]
