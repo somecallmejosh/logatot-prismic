@@ -1,7 +1,7 @@
 export default defineNuxtRouteMiddleware(async (to) => {
   const router = useRouter()
   const accessParam = to.query.access as string | null
-  const endpoint = `https://www.logatot.com/video_library_accesses/${accessParam}/validate`
+  const endpoint = `https://lat-prod-328bdc03c593.herokuapp.com/video_library_accesses/${accessParam}/validate`
   const errorRoute = '/video-learning-error'
   const protectedUid = 'video-learning'
   const unauthorizedRoute = '/video-learning-unauthorized'

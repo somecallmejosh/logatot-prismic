@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxtjs/i18n',
     '@nuxt/icon',
+    '@vee-validate/nuxt',
   ],
 
   i18n: {
@@ -65,5 +66,8 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.js',
+  },
+  veeValidate: {
+    autoImports: true,
   },
 })

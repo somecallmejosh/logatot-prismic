@@ -58,7 +58,7 @@
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('https://www.logatot.com/video_library_accesses', {
+      const response = await fetch('https://lat-prod-328bdc03c593.herokuapp.com/video_library_accesses', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -33,5 +33,8 @@
     "eslint": "^8.57.0",
     "nuxt": "^3.11.1",
     "slice-machine-ui": "^2.2.1"
+  },
+  "dependencies": {
+    "@vee-validate/nuxt": "^4.13.2"
   }
 }

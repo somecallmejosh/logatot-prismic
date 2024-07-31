@@ -8,6 +8,10 @@
       type: String,
       default: ''
     },
+    error: {
+      type: String,
+      default: ''
+    },
     modelValue: {
       type: [String, Number],
       default: ''
@@ -32,4 +36,10 @@
     class="input-field"
     @input="updateValue"
   >
+  <p
+    v-if="error"
+    class="text-red-500"
+  >
+    {{ error }}
+  </p>
 </template>

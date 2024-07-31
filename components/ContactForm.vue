@@ -2,10 +2,32 @@
   const { t } = useI18n({
     useScope: 'local'
   })
-  const form = ref({
-    email: '',
-    phone: '',
-    description: ''
+
+  const { value: email, errorMessage: emailError } = useField('email', function(value) {
+    if (!value) {
+      return 'Email is required'
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      return 'Invalid email address'
+    }
+    return true
+  })
+
+  const {value: phone, errorMessage: phoneError} = useField('phone', function(value) {
+    if (!value) {
+      return 'Phone number is required'
+    }
+    if (!/^\d{3}-\d{3}-\d{4}$/.test(value)) {
+      return 'Invalid phone number. Use the format 555-456-7890'
+    }
+    return true
+  })
+
+  const {value: description, errorMessage: descriptionError} = useField('description', function(value) {
+    if (!value) {
+      return 'Description is required'
+    }
+    return true
   })
 
   const displaySuccess = ref(false)
@@ -13,13 +35,17 @@
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('https://logatot.com/waitlist_signup', {
+      const response = await fetch('https://lat-prod-328bdc03c593.herokuapp.com/waitlist_signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({...form.value})
+        body: JSON.stringify({
+          email,
+          phone,
+          description
+        })
       })
 
       if (response.ok) {
@@ -40,6 +66,65 @@
     }
   }
 </script>
+
+<template>
+  <div
+    class="w-full"
+  >
+    <div class="flex flex-col gap-y-3">
+      <h2 class="font-semibold">
+        {{ t('contact') }}
+      </h2>
+      <NotificationSuccess
+        v-if="displaySuccess"
+        icon="mdi:email-check-outline"
+        :text="t('success_message')"
+      />
+      <form
+        v-if="!displaySuccess"
+        class="space-y-4"
+        @submit="handleSubmit"
+      >
+        <div>
+          <FormInput
+            v-model="email"
+            :label="t('email')"
+            placeholder="you@email.com"
+            type="email"
+            :error="emailError"
+          />
+        </div>
+        <div>
+          <FormInput
+            v-model="phone"
+            :label="t('phone')"
+            placeholder="555-456-7890"
+            type="tel"
+            :error="phoneError"
+          />
+        </div>
+        <div>
+          <FormTextArea
+            v-model="description"
+            :label="t('description')"
+            :error="descriptionError"
+          />
+        </div>
+        <button
+          id="recaptcha-button"
+          type="submit"
+          class="btn btn-primary"
+        >
+          {{ t('contact') }}
+        </button>
+      </form>
+    </div>
+    <p class="mt-2 text-sm leading-6">
+      {{ t('spam') }}
+    </p>
+  </div>
+</template>
+
 <i18n lang="json">
 {
   "en": {
@@ -63,57 +148,3 @@
   }
 }
 </i18n>
-<template>
-  <div
-    class="w-full"
-  >
-    <div class="flex flex-col gap-y-3">
-      <h2 class="font-semibold">
-        {{ t('contact') }}
-      </h2>
-      <NotificationSuccess
-        v-if="displaySuccess"
-        icon="mdi:email-check-outline"
-        :text="t('success_message')"
-      />
-      <form
-        v-if="!displaySuccess"
-        class="space-y-4"
-        @submit="handleSubmit"
-      >
-        <div>
-          <FormInput
-            v-model="form.email"
-            :label="t('email')"
-            placeholder="you@email.com"
-            type="email"
-          />
-        </div>
-        <div>
-          <FormInput
-            v-model="form.phone"
-            :label="t('phone')"
-            placeholder="123-456-7890"
-            type="tel"
-          />
-        </div>
-        <div>
-          <FormTextArea
-            v-model="form.description"
-            :label="t('description')"
-          />
-        </div>
-        <button
-          id="recaptcha-button"
-          type="submit"
-          class="btn btn-primary"
-        >
-          {{ t('contact') }}
-        </button>
-      </form>
-    </div>
-    <p class="mt-2 text-sm leading-6">
-      {{ t('spam') }}
-    </p>
-  </div>
-</template>
