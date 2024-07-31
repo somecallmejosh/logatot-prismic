@@ -35,16 +35,16 @@
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('https://lat-prod-328bdc03c593.herokuapp.com/waitlist_signup', {
+      const response = await fetch('http://lat-prod-328bdc03c593.herokuapp.com/waitlist_signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          email,
-          phone,
-          description
+          email: email.value,
+          phone: phone.value,
+          description: description.value
         })
       })
 
@@ -52,11 +52,9 @@
         // If the response is OK (status 200-299), show the success message
         displaySuccess.value = true
         // clear the form
-        form.value = {
-          email: '',
-          description: '',
-          phone: ''
-        }
+        email.value = '',
+        description.value = '',
+        phone.value = ''
       } else {
         // Handle errors here if needed
         console.error('Failed to submit the form:', response.statusText)
