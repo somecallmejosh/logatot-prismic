@@ -13,7 +13,7 @@
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('http://localhost:3000/waitlist_signup', {
+      const response = await fetch('https://logatot.com/waitlist_signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
