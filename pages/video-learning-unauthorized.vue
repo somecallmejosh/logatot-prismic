@@ -10,7 +10,8 @@
     "email": "Email",
     "company": "Business Name",
     "phone": "Mobile Phone Number",
-    "submit": "Get Access to the Learning Library"
+    "submit": "Get Access to the Learning Library",
+    "success_message": "Thank you. We have received the information you provided. Please check your email for directions to access our video library."
   },
   "es": {
     "meta_title": "Página de Aprendizaje de Video",
@@ -22,7 +23,8 @@
     "email": "Correo Electrónico",
     "company": "Nombre de la empresa",
     "phone": "Número de teléfono móvil",
-    "submit": "Obtener acceso a la biblioteca de aprendizaje"
+    "submit": "Obtener acceso a la biblioteca de aprendizaje",
+    "success_message": "Por favor revise su correo electrónico para obtener instrucciones para acceder a nuestra biblioteca de videos."
   }
 }
 </i18n>
@@ -42,6 +44,50 @@
     ogTitle: () => t('meta_title'),
     ogDescription: () => t('meta_description'),
   })
+
+  const form = ref({
+    first_name: '',
+    last_name: '',
+    email: '',
+    company: '',
+    mobile_phone: ''
+  })
+
+  const displaySuccess = ref(false)
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+      const response = await fetch('https://www.logatot.com/video_library_accesses', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          "video_library_access": {...form.value}
+        })
+      })
+
+      if (response.ok) {
+        // If the response is OK (status 200-299), show the success message
+        displaySuccess.value = true
+        // clear the form
+        form.value = {
+          first_name: '',
+          last_name: '',
+          email: '',
+          company: '',
+          mobile_phone: ''
+        }
+      } else {
+        // Handle errors here if needed
+        console.error('Failed to submit the form:', response.statusText)
+      }
+    } catch (error) {
+      console.error('Error occurred during form submission:', error)
+    }
+  }
 </script>
 
 <template>
@@ -65,82 +111,60 @@
               class="absolute block w-32 h-32 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             />
           </div>
-          <p>{{ t('description') }}</p>
+          <p>
+            {{ t('description') }}
+          </p>
+          <NotificationSuccess
+            v-if="displaySuccess"
+            icon="mdi:email-check-outline"
+            :text="t('success_message')"
+          />
           <form
-            class="space-y-6 contents"
-            action="/video_library_accesses?locale=en"
-            accept-charset="UTF-8"
-            method="post"
+            v-if="!displaySuccess"
+            class="block space-y-6"
+            @submit="handleSubmit"
           >
-            <input
-              type="hidden"
-              name="authenticity_token"
-              value="tf06yPZsTVjwXbqPBxSmoVk1y-QnWf-StfMrEoYHZH1IZqYEQKfVt8oIwxUOKQuHTjbd6t2dLULTkQ4Rq-aqlg"
-              autocomplete="off"
-            >
-
             <div class="grid gap-6 lg:grid-cols-3">
               <div>
-                <label
-                  for="video_library_access_firstName"
-                >{{ t('firstName') }}</label>
-                <input
-                  id="video_library_access_firstName"
-                  required="required"
-                  class="input-field"
+                <FormInput
+                  v-model="form.first_name"
+                  :label="t('firstName')"
+                  placeholder="John"
                   type="text"
-                  name="video_library_access[firstName]"
-                >
+                />
               </div>
 
               <div>
-                <label
-                  for="video_library_access_last_name"
-                >{{ t('lastName') }}</label>
-                <input
-                  id="video_library_access_last_name"
-                  required="required"
-                  class="input-field"
+                <FormInput
+                  v-model="form.last_name"
+                  :label="t('lastName')"
+                  placeholder="Doe"
                   type="text"
-                  name="video_library_access[last_name]"
-                >
+                />
               </div>
 
               <div>
-                <label
-                  for="video_library_access_email"
-                >{{ t('email') }}</label>
-                <input
-                  id="video_library_access_email"
-                  required="required"
-                  class="input-field"
+                <FormInput
+                  v-model="form.email"
+                  :label="t('email')"
+                  placeholder="john@doe.com"
                   type="email"
-                  name="video_library_access[email]"
-                >
+                />
               </div>
               <div>
-                <label
-                  for="video_library_access_company"
-                >{{ t('company') }}</label>
-                <input
-                  id="video_library_access_company"
-                  required="required"
-                  class="input-field"
+                <FormInput
+                  v-model="form.company"
+                  :label="t('company')"
                   type="text"
-                  name="video_library_access[company]"
-                >
+                />
               </div>
               <div>
-                <label
-                  for="video_library_access_mobile_phone"
-                >{{ t('phone') }}</label>
-                <input
-                  id="video_library_access_mobile_phone"
-                  required="required"
-                  class="input-field"
-                  type="text"
-                  name="video_library_access[mobile_phone]"
-                >
+                <FormInput
+                  v-model="form.mobile_phone"
+                  :label="t('phone')"
+                  placeholder="123-456-7890"
+                  type="tel"
+                />
               </div>
             </div>
             <div>
