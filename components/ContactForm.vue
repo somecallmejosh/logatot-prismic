@@ -35,7 +35,7 @@
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('http://lat-prod-328bdc03c593.herokuapp.com/waitlist_signup', {
+      const response = await fetch('https://lat-prod-328bdc03c593.herokuapp.com/waitlist_signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
