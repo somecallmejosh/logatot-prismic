@@ -1,30 +1,28 @@
 <script setup>
-  const props = defineProps({
-    label: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    error: {
-      type: String,
-      default: ''
-    },
-    modelValue: {
-      type: [String, Number],
-      default: ''
-    }
-  })
-
-  const { label, modelValue } = toRefs(props)
-
-  const emit = defineEmits(['update:modelValue'])
-
-  const updateValue = (event) => {
-    emit('update:modelValue', event.target.value)
+const props = defineProps({
+  label: {
+    type: String,
+    default: ''
+  },
+  placeholder: {
+    type: String,
+    default: ''
+  },
+  error: {
+    type: String,
+    default: ''
+  },
+  modelValue: {
+    type: [String, Number],
+    default: ''
   }
+})
+
+const emit = defineEmits(['update:modelValue'])
+
+const updateValue = (event) => {
+  emit('update:modelValue', event.target.value)
+}
 </script>
 
 <template>
@@ -34,12 +32,10 @@
     :value="modelValue"
     :placeholder="placeholder"
     class="input-field"
+    :class="error ? 'border-red-500' : 'border-gray-300'"
     @input="updateValue"
   >
-  <p
-    v-if="error"
-    class="text-red-500"
-  >
+  <FormError v-if="error">
     {{ error }}
-  </p>
+  </FormError>
 </template>

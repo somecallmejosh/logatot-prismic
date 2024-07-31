@@ -1,78 +1,70 @@
 <script setup>
-  const { t } = useI18n({
-    useScope: 'local'
-  })
+import { useField, useForm } from 'vee-validate'
+import { object, string } from 'yup'
 
-  const { value: email, errorMessage: emailError } = useField('email', function(value) {
-    if (!value) {
-      return 'Email is required'
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-      return 'Invalid email address'
-    }
-    return true
-  })
+const { t } = useI18n({
+  useScope: 'local'
+})
 
-  const {value: phone, errorMessage: phoneError} = useField('phone', function(value) {
-    if (!value) {
-      return 'Phone number is required'
-    }
-    if (!/^\d{3}-\d{3}-\d{4}$/.test(value)) {
-      return 'Invalid phone number. Use the format 555-456-7890'
-    }
-    return true
-  })
+// Validation schema using Yup
+const validationSchema = object({
+  email: string().required('Email is required').email('Invalid email address'),
+  phone: string().required('Phone number is required').matches(/^\d{3}-\d{3}-\d{4}$/, 'Invalid phone number. Use the format 555-456-7890'),
+  description: string().required('Description is required')
+})
 
-  const {value: description, errorMessage: descriptionError} = useField('description', function(value) {
-    if (!value) {
-      return 'Description is required'
-    }
-    return true
-  })
+// Setting up form and fields
+const { handleSubmit, submitCount } = useForm({
+  validationSchema
+})
 
-  const displaySuccess = ref(false)
+const { value: email, errorMessage: emailError, handleChange: handleEmailChange } = useField('email')
+const { value: phone, errorMessage: phoneError, handleChange: handlePhoneChange } = useField('phone')
+const { value: description, errorMessage: descriptionError, handleChange: handleDescriptionChange } = useField('description')
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    try {
-      const response = await fetch('https://lat-prod-328bdc03c593.herokuapp.com/waitlist_signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email.value,
-          phone: phone.value,
-          description: description.value
-        })
-      })
-
-      if (response.ok) {
-        // If the response is OK (status 200-299), show the success message
-        displaySuccess.value = true
-        // clear the form
-        email.value = '',
-        description.value = '',
-        phone.value = ''
-      } else {
-        // Handle errors here if needed
-        console.error('Failed to submit the form:', response.statusText)
-      }
-    } catch (error) {
-      console.error('Error occurred during form submission:', error)
-    }
+const displaySuccess = ref(false)
+const displayTooManyAttempts = ref(false)
+const onSubmit = handleSubmit(async (values) => {
+  if (submitCount.value >= 3) {
+    displayTooManyAttempts.value = true
+    return
   }
+  try {
+    const response = await fetch('https://lat-prod-328bdc03c593.herokuapp.com/waitlist_signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(values)
+    })
+
+    if (response.ok) {
+      displaySuccess.value = true
+      // clear the form
+      email.value = ''
+      phone.value = ''
+      description.value = ''
+    } else {
+      console.error('Failed to submit the form:', response.statusText)
+    }
+  } catch (error) {
+    console.error('Error occurred during form submission:', error)
+  }
+})
 </script>
 
 <template>
-  <div
-    class="w-full"
-  >
+  <div class="w-full">
     <div class="flex flex-col gap-y-3">
       <h2 class="font-semibold">
         {{ t('contact') }}
       </h2>
+      <NotificationError
+        v-if="displayTooManyAttempts"
+        icon="mdi:email-check-outline"
+        :text="t('too_many_attempts')"
+      />
       <NotificationSuccess
         v-if="displaySuccess"
         icon="mdi:email-check-outline"
@@ -81,31 +73,34 @@
       <form
         v-if="!displaySuccess"
         class="space-y-4"
-        @submit="handleSubmit"
+        @submit="onSubmit"
       >
         <div>
           <FormInput
-            v-model="email"
+            :model-value="email"
             :label="t('email')"
             placeholder="you@email.com"
             type="email"
             :error="emailError"
+            @change="handleEmailChange"
           />
         </div>
         <div>
           <FormInput
-            v-model="phone"
+            :model-value="phone"
             :label="t('phone')"
             placeholder="555-456-7890"
             type="tel"
             :error="phoneError"
+            @change="handlePhoneChange"
           />
         </div>
         <div>
           <FormTextArea
-            v-model="description"
+            :model-value="description"
             :label="t('description')"
             :error="descriptionError"
+            @change="handleDescriptionChange"
           />
         </div>
         <button
@@ -123,6 +118,7 @@
   </div>
 </template>
 
+
 <i18n lang="json">
 {
   "en": {
@@ -132,7 +128,8 @@
     "description": "Description",
     "contact": "Contact Us",
     "spam": "Absolutely no spam guaranteed.",
-    "success_message": "Thank you. We have received the information you provided and will be in touch soon."
+    "success_message": "Thank you. We have received the information you provided and will be in touch soon.",
+    "too_many_attempts": "You have exceeded the maximum number of attempts. Please try again later."
 
   },
   "es": {
@@ -142,7 +139,8 @@
     "description": "Descripción",
     "contact": "Contáctenos",
     "spam": "Absolutamente sin spam garantizado.",
-    "success_message": "Gracias. Hemos recibido la información que proporcionó y nos pondremos en contacto pronto."
+    "success_message": "Gracias. Hemos recibido la información que proporcionó y nos pondremos en contacto pronto.",
+    "too_many_attempts": "Ha excedido el número máximo de intentos. Por favor, inténtelo de nuevo más tarde."
   }
 }
 </i18n>

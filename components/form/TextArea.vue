@@ -1,22 +1,14 @@
-<template>
-  <label v-if="label">{{ label }}</label>
-  <textarea
-    v-bind="$attrs"
-    :value="modelValue"
-    :placeholder="placeholder"
-    class="text-area"
-    @input="updateValue"
-  />
-</template>
-
 <script setup>
-
-const props = defineProps({
+defineProps({
   label: {
     type: String,
     default: ''
   },
   placeholder: {
+    type: String,
+    default: ''
+  },
+  error: {
     type: String,
     default: ''
   },
@@ -26,11 +18,25 @@ const props = defineProps({
   }
 })
 
-const { label, modelValue } = toRefs(props)
-
 const emit = defineEmits(['update:modelValue'])
 
 const updateValue = (event) => {
   emit('update:modelValue', event.target.value)
 }
 </script>
+
+<template>
+  <label v-if="label">{{ label }}</label>
+  <textarea
+    v-bind="$attrs"
+    :value="modelValue"
+    :placeholder="placeholder"
+    class="input-field"
+    :class="error ? 'border-red-500' : 'border-gray-300'"
+    @input="updateValue"
+    @blur="$attrs.onBlur"
+  />
+  <FormError v-if="error">
+    {{ error }}
+  </FormError>
+</template>

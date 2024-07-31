@@ -21,7 +21,7 @@ label {
 }
 
 .input-field, textarea  {
-  @apply border-gray-300 text-gray-900 focus:outline-none focus-visible:ring-blue-600 focus:border-blue-600 placeholder:italic placeholder:text-slate-400 sm:text-sm block w-full px-3 bg-white border rounded shadow-sm
+  @apply text-gray-900 focus:outline-none focus-visible:ring-blue-600 focus:border-blue-600 placeholder:italic placeholder:text-slate-400 sm:text-sm block w-full px-3 bg-white border rounded shadow-sm
 }
 
 textarea {
