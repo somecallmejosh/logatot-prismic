@@ -12,6 +12,10 @@ const props = defineProps({
     type: String,
     default: ''
   },
+  required: {
+    type: Boolean,
+    default: false
+  },
   modelValue: {
     type: [String, Number],
     default: ''
@@ -26,7 +30,10 @@ const updateValue = (event) => {
 </script>
 
 <template>
-  <label v-if="label">{{ label }}</label>
+  <FormLabel
+    :label="label"
+    :required="required"
+  />
   <input
     v-bind="$attrs"
     :value="modelValue"

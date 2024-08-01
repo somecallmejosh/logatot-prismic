@@ -1,5 +1,4 @@
 <script setup>
-import { useField, useForm } from 'vee-validate'
 import { object, string } from 'yup'
 
 const { t } = useI18n({
@@ -10,7 +9,8 @@ const { t } = useI18n({
 const validationSchema = object({
   email: string().required('Email is required').email('Invalid email address'),
   phone: string().required('Phone number is required').matches(/^\d{3}-\d{3}-\d{4}$/, 'Invalid phone number. Use the format 555-456-7890'),
-  description: string().required('Description is required')
+  description: string().required('Description is required'),
+  recaptcha: string().required('Please verify you are human'),
 })
 
 // Setting up form and fields
@@ -21,6 +21,8 @@ const { handleSubmit, submitCount } = useForm({
 const { value: email, errorMessage: emailError, handleChange: handleEmailChange } = useField('email')
 const { value: phone, errorMessage: phoneError, handleChange: handlePhoneChange } = useField('phone')
 const { value: description, errorMessage: descriptionError, handleChange: handleDescriptionChange } = useField('description')
+const { value: recaptchaValue, errorMessage: recaptchaError } = useField('recaptcha')
+
 
 const displaySuccess = ref(false)
 const displayTooManyAttempts = ref(false)
@@ -72,6 +74,7 @@ const onSubmit = handleSubmit(async (values) => {
       />
       <form
         v-if="!displaySuccess"
+        novalidate
         class="space-y-4"
         @submit="onSubmit"
       >
@@ -82,6 +85,7 @@ const onSubmit = handleSubmit(async (values) => {
             placeholder="you@email.com"
             type="email"
             :error="emailError"
+            required
             @change="handleEmailChange"
           />
         </div>
@@ -92,6 +96,7 @@ const onSubmit = handleSubmit(async (values) => {
             placeholder="555-456-7890"
             type="tel"
             :error="phoneError"
+            required
             @change="handlePhoneChange"
           />
         </div>
@@ -100,8 +105,16 @@ const onSubmit = handleSubmit(async (values) => {
             :model-value="description"
             :label="t('description')"
             :error="descriptionError"
+            required
             @change="handleDescriptionChange"
           />
+        </div>
+        <RecaptchaChallengeV2 v-model="recaptchaValue" />
+        <div
+          v-if="recaptchaError"
+          class="text-red"
+        >
+          {{ recaptchaError }}
         </div>
         <button
           id="recaptcha-button"
@@ -117,7 +130,6 @@ const onSubmit = handleSubmit(async (values) => {
     </p>
   </div>
 </template>
-
 
 <i18n lang="json">
 {

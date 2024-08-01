@@ -45,7 +45,7 @@
           </ul>
         </nav>
         <div class="space-y-2">
-          <ContactForm />
+          <FormContact />
         </div>
       </div>
       <div class="flex flex-col justify-between gap-6 pt-6 border-t border-blue-50 lg:flex-row">

@@ -3,6 +3,14 @@ import { repositoryName, apiEndpoint } from './slicemachine.config.json';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      recaptcha: {
+        v2SiteKey: process.env.RECAPTCHA_SITE_KEY,
+        v3SiteKey: process.env.RECAPTCHA_SITE_KEY,
+      },
+    },
+  },
   app: {
     head: {
       htmlAttrs: {
@@ -27,7 +35,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-
   modules: [
     '@nuxtjs/prismic',
     '@nuxtjs/tailwindcss',
@@ -35,8 +42,8 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/icon',
     '@vee-validate/nuxt',
+    'vue-recaptcha/nuxt',
   ],
-
   i18n: {
     locales: ['en-us', 'es-es'],
     defaultLocale: 'en-us',
