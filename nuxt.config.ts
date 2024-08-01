@@ -4,11 +4,8 @@ import { repositoryName, apiEndpoint } from './slicemachine.config.json';
 export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
-    public: {
-      recaptcha: {
-        v2SiteKey: process.env.RECAPTCHA_SITE_KEY,
-        v3SiteKey: process.env.RECAPTCHA_SITE_KEY,
-      },
+    turnstile: {
+      secretKey: process.env.TURNSTILE_SECRET_KEY,
     },
   },
   app: {
@@ -42,7 +39,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/icon',
     '@vee-validate/nuxt',
-    'vue-recaptcha/nuxt',
+    '@nuxtjs/turnstile',
   ],
   i18n: {
     locales: ['en-us', 'es-es'],
@@ -73,6 +70,9 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.js',
+  },
+  turnstile: {
+    siteKey: process.env.TURNSTILE_SITE_KEY,
   },
   veeValidate: {
     autoImports: true,

@@ -27,6 +27,7 @@
     "@nuxtjs/prismic": "^3.3.2",
     "@nuxtjs/recaptcha": "^1.1.2",
     "@nuxtjs/tailwindcss": "^6.12.1",
+    "@nuxtjs/turnstile": "^0.9.3",
     "@slicemachine/adapter-nuxt": "^0.3.42",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "github:tailwindcss/typography",
@@ -37,7 +38,6 @@
     "yup": "^1.4.0"
   },
   "dependencies": {
-    "@vee-validate/nuxt": "^4.13.2",
-    "vue-recaptcha": "^3.0.0-alpha.6"
+    "@vee-validate/nuxt": "^4.13.2"
   }
 }

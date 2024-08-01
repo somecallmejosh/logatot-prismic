@@ -12,7 +12,7 @@
     email: string().required(t('emailError')).email(t('emailInvalid')),
     mobile_phone: string().required(t('phoneError')).matches(/^\d{3}-\d{3}-\d{4}$/, t('phoneInvalid')),
     company: string().required(t('companyError')),
-    recaptcha: string().required('Please verify you are human'),
+    turnstile: string().required('Please verify you are human'),
   })
 
   // Setting up form and fields
@@ -25,7 +25,7 @@
   const { value: email, errorMessage: emailError, handleChange: handleEmailChange } = useField('email')
   const { value: company, errorMessage: companyError, handleChange: handleCompanyChange } = useField('company')
   const { value: mobile_phone, errorMessage: mobilePhoneError, handleChange: handleMobilePhoneChange } = useField('mobile_phone')
-  const { value: recaptchaValue, errorMessage: recaptchaError } = useField('recaptcha')
+  const { value: turnstileValue } = useField('turnstile')
 
 
   const displaySuccess = ref(false)
@@ -134,14 +134,8 @@
         />
       </div>
     </div>
-    <RecaptchaChallengeV2 v-model="recaptchaValue" />
-    <div
-      v-if="recaptchaError"
-      class="text-red"
-    >
-      {{ recaptchaError }}
-    </div>
     <div>
+      <NuxtTurnstile v-model="turnstileValue" />
       <button
         type="submit"
         class="btn btn-primary"

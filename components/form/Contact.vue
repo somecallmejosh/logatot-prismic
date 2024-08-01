@@ -10,7 +10,7 @@ const validationSchema = object({
   email: string().required('Email is required').email('Invalid email address'),
   phone: string().required('Phone number is required').matches(/^\d{3}-\d{3}-\d{4}$/, 'Invalid phone number. Use the format 555-456-7890'),
   description: string().required('Description is required'),
-  recaptcha: string().required('Please verify you are human'),
+  turnstile: string().required('Please verify you are human'),
 })
 
 // Setting up form and fields
@@ -21,7 +21,7 @@ const { handleSubmit, submitCount } = useForm({
 const { value: email, errorMessage: emailError, handleChange: handleEmailChange } = useField('email')
 const { value: phone, errorMessage: phoneError, handleChange: handlePhoneChange } = useField('phone')
 const { value: description, errorMessage: descriptionError, handleChange: handleDescriptionChange } = useField('description')
-const { value: recaptchaValue, errorMessage: recaptchaError } = useField('recaptcha')
+const { value: turnstileValue } = useField('turnstile')
 
 
 const displaySuccess = ref(false)
@@ -109,20 +109,15 @@ const onSubmit = handleSubmit(async (values) => {
             @change="handleDescriptionChange"
           />
         </div>
-        <RecaptchaChallengeV2 v-model="recaptchaValue" />
-        <div
-          v-if="recaptchaError"
-          class="text-red"
-        >
-          {{ recaptchaError }}
+        <div>
+          <NuxtTurnstile v-model="turnstileValue" />
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >
+            {{ t('contact') }}
+          </button>
         </div>
-        <button
-          id="recaptcha-button"
-          type="submit"
-          class="btn btn-primary"
-        >
-          {{ t('contact') }}
-        </button>
       </form>
     </div>
     <p class="mt-2 text-sm leading-6">
