@@ -37,7 +37,6 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/fonts',
     '@nuxtjs/i18n',
-    '@nuxt/icon',
     '@vee-validate/nuxt',
     '@nuxtjs/turnstile',
   ],

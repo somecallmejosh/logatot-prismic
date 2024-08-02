@@ -13,25 +13,21 @@
       <li>
         <a
           :href="switchLocalePath('en-us')"
-          class="flex items-center p-1 rounded-full border  hover:bg-blue-50"
+          class="flex items-center p-0.5 border rounded-full hover:bg-blue-50"
           :class="locale == 'en-us' ? 'border-blue-500/100' : 'border-blue-500/20'"
         >
-          <Icon
-            name="emojione:flag-for-united-states"
-            class="h-6 w-6"
-          />
+          <IconUs class="w-8 h-8 shrink-0" />
+          <div class="sr-only">English</div>
         </a>
       </li>
       <li>
         <a
           :href="switchLocalePath('es-es')"
-          class="flex items-center p-1 rounded-full border  hover:bg-blue-50"
+          class="flex items-center p-0.5 border rounded-full hover:bg-blue-50"
           :class="locale == 'es-es' ? 'border-blue-500/100' : 'border-blue-500/20'"
         >
-          <Icon
-            name="emojione:flag-for-spain"
-            class="text-blue-500 h-6 w-6"
-          />
+          <IconSpain class="w-8 h-8" />
+          <div class="sr-only">Español</div>
         </a>
       </li>
     </ul>

@@ -43,18 +43,18 @@
 								}
 							],
 							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "nuts",
-									"type": "Text"
-								}
-							],
-							[
 								"highlight_color",
 								{
 									"__TYPE__": "FieldContent",
 									"value": "Purple",
+									"type": "Select"
+								}
+							],
+							[
+								"icon_selection",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Mic",
 									"type": "Select"
 								}
 							]

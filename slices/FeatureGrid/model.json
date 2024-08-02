@@ -27,6 +27,19 @@
             "label": "Feature Items",
             "repeat": true,
             "fields": {
+              "icon_selection": {
+                "type": "Select",
+                "config": {
+                  "label": "Icon",
+                  "placeholder": "",
+                  "options": [
+                    "Clock",
+                    "Communication",
+                    "Data",
+                    "Mic"
+                  ]
+                }
+              },
               "title": {
                 "type": "Text",
                 "config": {
@@ -41,13 +54,6 @@
                   "placeholder": "",
                   "allowTargetBlank": true,
                   "multi": "paragraph,strong,em,list-item,o-list-item"
-                }
-              },
-              "icon": {
-                "type": "Text",
-                "config": {
-                  "label": "Icon",
-                  "placeholder": "Material Icon"
                 }
               },
               "highlight_color": {

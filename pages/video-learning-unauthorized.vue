@@ -45,11 +45,8 @@
               alt=""
               loading="lazy"
             >
-            <div class="inset-0 transition-all duration-300 bg-white/10 group-hover:backdrop-blur-sm" />
-            <Icon
-              name="material-symbols:play-circle-outline"
-              class="absolute block w-32 h-32 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            />
+            <div class="inset-0 transition-all duration-300 bg-blue-950/10 group-hover:backdrop-blur-sm" />
+            <IconPlay class="absolute z-50 w-20 h-20 text-black transform -translate-x-1/2 -translate-y-1/2 lg:w-32 lg:h-32 top-1/2 left-1/2" />
           </div>
           <FormVideo />
         </div>

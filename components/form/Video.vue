@@ -64,7 +64,6 @@
 <template>
   <NotificationSuccess
     v-if="displaySuccess"
-    icon="mdi:email-check-outline"
     :text="t('success_message')"
   />
   <form
@@ -134,14 +133,18 @@
         />
       </div>
     </div>
-    <div>
-      <NuxtTurnstile v-model="turnstileValue" />
-      <button
-        type="submit"
-        class="btn btn-primary"
-      >
-        {{ t('submit') }}
-      </button>
+    <div class="flex flex-col gap-6 lg:flex-row lg:justify-between lg:items-center">
+      <div>
+        <NuxtTurnstile v-model="turnstileValue" />
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          {{ t('submit') }}
+        </button>
+      </div>
     </div>
   </form>
 </template>

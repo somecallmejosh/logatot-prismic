@@ -64,12 +64,10 @@ const onSubmit = handleSubmit(async (values) => {
       </h2>
       <NotificationError
         v-if="displayTooManyAttempts"
-        icon="mdi:email-check-outline"
         :text="t('too_many_attempts')"
       />
       <NotificationSuccess
         v-if="displaySuccess"
-        icon="mdi:email-check-outline"
         :text="t('success_message')"
       />
       <form

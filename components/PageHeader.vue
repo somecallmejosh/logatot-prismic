@@ -72,8 +72,7 @@
                     <Logo class="h-10 text-blue-600" />
                     <div class="flex items-center ml-3 h-7">
                       <button @click="toggleOffscreen">
-                        <Icon
-                          name="mdi:close-circle-outline"
+                        <IconClose
                           class="text-blue-500 h-7 w-7"
                         />
                         <span class="sr-only">Toggle Mobile Menu Visibility</span>
@@ -111,8 +110,7 @@
                           target="_blank"
                           class="flex items-center gap-3 py-4 font-semibold text-blue-900"
                         >
-                          <Icon
-                            name="material-symbols:location-home"
+                          <IconHome
                             class="w-6 h-6"
                           />
                           {{ settings.data.footer_nav_web_app[0].link_text }}
@@ -124,8 +122,7 @@
                           target="_blank"
                           class="flex items-center gap-3 py-4 font-semibold text-blue-900"
                         >
-                          <Icon
-                            name="material-symbols:family-restroom-sharp"
+                          <IconFamily
                             class="w-6 h-6"
                           />
                           {{ settings.data.footer_nav_web_app[1].link_text }}
@@ -137,8 +134,7 @@
                           target="_blank"
                           class="flex items-center gap-3 py-4 font-semibold text-blue-900"
                         >
-                          <Icon
-                            name="mdi:key-variant"
+                          <IconKey
                             class="w-6 h-6"
                           />{{ settings.data.footer_nav_web_app[2].link_text }}</a>
                       </li>
@@ -187,9 +183,8 @@
         <AuthLinks class="hidden lg:flex" />
         <LocaleSelection class="hidden lg:flex" />
         <button class="lg:hidden">
-          <Icon
-            name="material-symbols:menu"
-            class="w-5 h-5 text-blue-500"
+          <IconMenu
+            class="w-6 h-6 text-blue-500"
             @click="toggleOffscreen"
           />
           <span class="sr-only">Toggle Mobile Menu Visibility</span>

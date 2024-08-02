@@ -1,4 +1,8 @@
 <script setup>
+import IconClock from '@/components/Icon/Clock'
+import IconCommunication from '@/components/Icon/Communication'
+import IconData from '@/components/Icon/Data'
+import IconMic from '@/components/Icon/Mic'
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
 defineProps(
@@ -9,6 +13,12 @@ defineProps(
     'context',
   ]),
 )
+const iconMap = {
+  'Clock': IconClock,
+  'Communication': IconCommunication,
+  'Data': IconData,
+  'Mic': IconMic,
+}
 </script>
 
 <template>
@@ -16,11 +26,11 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     aria-label="Benefits"
-    class="max-w-7xl w-full mx-auto px-4 xl:px-0 space-y-10 relative z-10 lg:space-y-24"
+    class="relative z-10 w-full px-4 mx-auto space-y-10 max-w-7xl xl:px-0 lg:space-y-24"
   >
     <PrismicRichText
       :field="slice.primary.heading"
-      class="text-3xl lg:text-5xl font-display text-blue-950 dark:text-white flex items-center gap-2 font-bold justify-center pb-6 lg:pb-0"
+      class="flex items-center justify-center gap-2 pb-6 text-3xl font-bold lg:text-5xl font-display text-blue-950 dark:text-white lg:pb-0"
     />
     <div class="grid gap-16 lg:grid-cols-2 xl:grid-cols-4 text-brand-black xl:gap-6">
       <template
@@ -30,12 +40,12 @@ defineProps(
         <div class="relative z-10 p-6 pt-12 pb-8 bg-white rounded-lg shadow lg:px-6 lg:py-12 slide-in">
           <div
             aria-hidden="true"
-            class="left-6 absolute top-0 flex items-center justify-center w-16 h-16 text-white -translate-y-1/2 rounded-full lg:left-5"
+            class="absolute top-0 flex items-center justify-center w-16 h-16 text-white -translate-y-1/2 rounded-full left-6 lg:left-5"
             :class="item.highlight_color.toLowerCase()"
           >
-            <Icon
-              :name="item.icon"
-              class="text-white h-10 w-10"
+            <component
+              :is="iconMap[item.icon_selection]"
+              class="w-10 h-10 text-white"
             />
           </div>
           <div class="space-y-4">
@@ -60,7 +70,7 @@ defineProps(
         </div>
       </template>
     </div>
-    <div class="w-full lg:max-w-2xl lg:mx-auto lg:text-center prose prose-em:text-blue-600 prose-em:not-italic prose-em:font-display">
+    <div class="w-full prose lg:max-w-2xl lg:mx-auto lg:text-center prose-em:text-blue-600 prose-em:not-italic prose-em:font-display">
       <PrismicRichText
         :field="slice.primary.content"
         class="lg:px-10 lg:text-2xl text-blue-950"

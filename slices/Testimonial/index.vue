@@ -17,40 +17,35 @@ defineProps(
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="max-w-3xl w-full mx-auto px-6 xl:px-0 pt-24"
+    class="w-full max-w-3xl px-6 pt-24 mx-auto xl:px-0"
   >
     <figure>
       <p class="sr-only">
         5 out of 5 stars
       </p>
-      <div class="flex text-blue-600 gap-x-1 animate-pulse mb-6">
-        <Icon
-          name="mdi:star"
-          class="h-6 w-6"
+      <div class="flex mb-6 text-blue-600 gap-x-1 animate-pulse">
+        <IconStar
+          class="w-6 h-6"
         />
-        <Icon
-          name="mdi:star"
-          class="h-6 w-6"
+        <IconStar
+          class="w-6 h-6"
         />
-        <Icon
-          name="mdi:star"
-          class="h-6 w-6"
+        <IconStar
+          class="w-6 h-6"
         />
-        <Icon
-          name="mdi:star"
-          class="h-6 w-6"
+        <IconStar
+          class="w-6 h-6"
         />
-        <Icon
-          name="mdi:star"
-          class="h-6 w-6"
+        <IconStar
+          class="w-6 h-6"
         />
       </div>
       <template v-if="slice.primary.heading">
-        <h2 class="text-xl lg:text-3xl tracking-wide font-display text-blue-950 dark:text-white flex items-center gap-2 font-bold">
+        <h2 class="flex items-center gap-2 text-xl font-bold tracking-wide lg:text-3xl font-display text-blue-950 dark:text-white">
           {{ slice.primary.heading }}
         </h2>
       </template>
-      <blockquote class="mt-10 space-y-4 leading-8 tracking-tight text-gray-900 sm:leading-9 prose">
+      <blockquote class="mt-10 space-y-4 leading-8 tracking-tight prose text-gray-900 sm:leading-9">
         <prismic-rich-text
           :field="slice.primary.quote"
           class="max-w-md lg:max-w-none"
@@ -62,7 +57,7 @@ defineProps(
           :imgix-params="{fit: 'crop', w: 64, h: 64, dpr: 2, format: 'webp', q: 50
           }"
           loading="lazy"
-          class="w-16 h-16 border-2 rounded-full bg-gray-50 border-blue-200"
+          class="w-16 h-16 border-2 border-blue-200 rounded-full bg-gray-50"
         />
         <div class="text-sm leading-6">
           <div class="font-semibold text-gray-900">

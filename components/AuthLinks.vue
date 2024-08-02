@@ -80,8 +80,7 @@
                 target="_blank"
                 class="flex items-center gap-3 p-2 hover:bg-blue-50"
               >
-                <Icon
-                  name="material-symbols:location-home"
+                <IconHome
                   class="w-6 h-6"
                 />
                 {{ settings.data.footer_nav_web_app[0].link_text }}
@@ -93,8 +92,7 @@
                 target="_blank"
                 class="flex items-center gap-3 p-2 hover:bg-blue-50"
               >
-                <Icon
-                  name="material-symbols:family-restroom-sharp"
+                <IconFamily
                   class="w-6 h-6"
                 />
                 {{ settings.data.footer_nav_web_app[1].link_text }}

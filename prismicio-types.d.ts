@@ -635,6 +635,18 @@ export type FeatureContentSlice = prismic.SharedSlice<
  */
 export interface FeatureGridSliceDefaultPrimaryFeatureItemsItem {
   /**
+   * Icon field in *FeatureGrid → Default → Primary → Feature Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_grid.default.primary.feature_items[].icon_selection
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon_selection: prismic.SelectField<
+    "Clock" | "Communication" | "Data" | "Mic"
+  >;
+
+  /**
    * Title field in *FeatureGrid → Default → Primary → Feature Items*
    *
    * - **Field Type**: Text
@@ -653,16 +665,6 @@ export interface FeatureGridSliceDefaultPrimaryFeatureItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField;
-
-  /**
-   * Icon field in *FeatureGrid → Default → Primary → Feature Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Material Icon
-   * - **API ID Path**: feature_grid.default.primary.feature_items[].icon
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  icon: prismic.KeyTextField;
 
   /**
    * Highlight Color field in *FeatureGrid → Default → Primary → Feature Items*
