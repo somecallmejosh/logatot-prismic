@@ -26,14 +26,6 @@
 								}
 							],
 							[
-								"video_type",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "Vimeo",
-									"type": "Select"
-								}
-							],
-							[
 								"video",
 								{
 									"__TYPE__": "LinkContent",
@@ -46,6 +38,11 @@
 						]
 					}
 				]
+			},
+			"duration": {
+				"__TYPE__": "FieldContent",
+				"value": "tropical",
+				"type": "Text"
 			}
 		},
 		"items": []

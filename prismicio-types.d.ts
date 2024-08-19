@@ -381,7 +381,87 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = BlogDocument | PageDocument | SettingsDocument;
+type VideoLibraryDocumentDataSlicesSlice = PageHeaderSlice | VideosSlice;
+
+/**
+ * Content for Video Library documents
+ */
+interface VideoLibraryDocumentData {
+  /**
+   * Title field in *Video Library*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_library.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Video Library*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_library.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<VideoLibraryDocumentDataSlicesSlice> /**
+   * Meta Title field in *Video Library*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: video_library.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Video Library*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: video_library.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Video Library*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_library.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Video Library document from Prismic
+ *
+ * - **API ID**: `video_library`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type VideoLibraryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<VideoLibraryDocumentData>,
+    "video_library",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | BlogDocument
+  | PageDocument
+  | SettingsDocument
+  | VideoLibraryDocument;
 
 /**
  * Primary content in *CallToAction → Default → Primary*
@@ -1804,17 +1884,6 @@ export interface VideosSliceDefaultPrimaryVideoItem {
   description: prismic.KeyTextField;
 
   /**
-   * Video Type field in *Videos → Default → Primary → Video*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Vimeo
-   * - **API ID Path**: videos.default.primary.video[].video_type
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  video_type: prismic.SelectField<"Vimeo" | "Youtube", "filled">;
-
-  /**
    * Video URL field in *Videos → Default → Primary → Video*
    *
    * - **Field Type**: Link
@@ -1838,6 +1907,16 @@ export interface VideosSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   video: prismic.GroupField<Simplify<VideosSliceDefaultPrimaryVideoItem>>;
+
+  /**
+   * Combined Duration field in *Videos → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 30 Minutes
+   * - **API ID Path**: videos.default.primary.duration
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  duration: prismic.KeyTextField;
 }
 
 /**
@@ -1888,6 +1967,9 @@ declare module "@prismicio/client" {
       SettingsDocumentDataMainNavItem,
       SettingsDocumentDataFooterNavWebsiteItem,
       SettingsDocumentDataFooterNavWebAppItem,
+      VideoLibraryDocument,
+      VideoLibraryDocumentData,
+      VideoLibraryDocumentDataSlicesSlice,
       AllDocumentTypes,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
