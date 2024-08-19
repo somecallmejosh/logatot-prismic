@@ -59,21 +59,23 @@ const setActiveVideo = (url, description) => {
             </template>
           </div>
         </div>
-        <ul class="divide-y divide-blue-100 lg:col-span-2">
-          <li
-            v-for="(video, index) in slice.primary.video"
-            :key="index"
-          >
-            <button
-              v-if="video.video && video.video.url"
-              class="block w-full p-2 text-left hover:bg-blue-50"
-              :class="{ 'font-bold bg-blue-50': activeVideo === convertVimeoUrl(video.video.url) }"
-              @click="setActiveVideo(convertVimeoUrl(video.video.url), video.description)"
+        <div class=" lg:col-span-2">
+          <ul class="sticky divide-y divide-blue-100 top-6">
+            <li
+              v-for="(video, index) in slice.primary.video"
+              :key="index"
             >
-              {{ video.title }}
-            </button>
-          </li>
-        </ul>
+              <button
+                v-if="video.video && video.video.url"
+                class="block w-full p-2 text-left hover:bg-blue-50"
+                :class="{ 'font-bold bg-blue-50': activeVideo === convertVimeoUrl(video.video.url) }"
+                @click="setActiveVideo(convertVimeoUrl(video.video.url), video.description)"
+              >
+                {{ video.title }}
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </Bounded>
   </section>
