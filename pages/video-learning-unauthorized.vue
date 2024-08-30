@@ -36,7 +36,7 @@
       <div class="space-y-6 lg:col-span-5">
         <div class="p-6 space-y-6 rounded-xl bg-blue-200/10">
           <h2 class="flex items-center gap-2 text-xl font-bold tracking-wide lg:text-3xl font-display text-blue-950 dark:text-white">
-            {{ t('header') }}
+            {{ t('videoLearningHeader') }}
           </h2>
           <div class="relative grid items-center justify-center overflow-hidden rounded-lg cursor-not-allowed aspect-w-16 aspect-h-9 group">
             <img

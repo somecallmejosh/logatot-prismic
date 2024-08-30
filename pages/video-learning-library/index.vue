@@ -30,7 +30,7 @@
           </li>
         </ul>
         <NuxtLink
-          :to="`/video-learning-library/${video.uid}`"
+          :to="localePath(`/video-learning-library/${video.uid}`)"
           class="absolute inset-0"
         />
       </li>

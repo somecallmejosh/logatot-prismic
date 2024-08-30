@@ -11,8 +11,8 @@
   >
     <ul class="flex items-center gap-2">
       <li>
-        <NuxtLink
-          :to="switchLocalePath('en-us')"
+        <a
+          :href="switchLocalePath('en-us')"
           class="flex items-center p-0.5 border rounded-full hover:bg-blue-50"
           :class="locale == 'en-us' ? 'border-blue-500/100' : 'border-blue-500/20'"
         >
@@ -20,11 +20,11 @@
           <div class="sr-only">
             English
           </div>
-        </NuxtLink>
+        </a>
       </li>
       <li>
-        <NuxtLink
-          :to="switchLocalePath('es-es')"
+        <a
+          :href="switchLocalePath('es-es')"
           class="flex items-center p-0.5 border rounded-full hover:bg-blue-50"
           :class="locale == 'es-es' ? 'border-blue-500/100' : 'border-blue-500/20'"
         >
@@ -32,7 +32,7 @@
           <div class="sr-only">
             Español
           </div>
-        </NuxtLink>
+        </a>
       </li>
     </ul>
   </nav>

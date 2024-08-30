@@ -21,7 +21,7 @@
 <template>
   <Bounded class="py-12 space-y-12 lg:py-24">
     <div class="space-y-2">
-      <NuxtLink to="/video-learning-library">
+      <NuxtLink :to="localePath('/video-learning-library')">
         Video Learning Library
       </NuxtLink>
       <h1 class="text-5xl font-bold font-display">

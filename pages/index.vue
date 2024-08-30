@@ -19,7 +19,6 @@
   })
 </script>
 
-
 <template>
   <SliceZone
     wrapper="div"
