@@ -16,12 +16,12 @@
               v-for="(item, index) in settings?.data.footer_nav_website"
               :key="index"
             >
-              <prismic-link
-                :field="item.link_url"
+              <NuxtLink
+                :to="localePath(item.link_url.url)"
                 class="block py-3 no-underline transition-all duration-150 ease-in-out text-blue-950 hover:text-blue-800 hover:underline focus:outline-none focus-visible:outline-2 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
                 {{ item.link_text }}
-              </prismic-link>
+              </NuxtLink>
             </li>
           </ul>
         </nav>
@@ -35,12 +35,12 @@
               :key="index"
               target="_blank"
             >
-              <a
-                :href="link.link_url.url"
+              <NuxtLink
+                :to="localePath(link.link_url.url)"
                 class="block py-3 no-underline transition-all duration-150 ease-in-out text-blue-950 hover:text-blue-800 hover:underline focus:outline-none focus-visible:outline-2 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
                 {{ link.link_text }}
-              </a>
+              </NuxtLink>
             </li>
           </ul>
         </nav>

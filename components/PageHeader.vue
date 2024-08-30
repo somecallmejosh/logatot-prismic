@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
   const { t } = useI18n({
     useScope: 'local'
   })
@@ -15,9 +15,9 @@
     }
   }
 
-  const closeMenu = (event: MouseEvent) => {
+  const closeMenu = (event) => {
     const offscreenVisibleElement = document.querySelector('#slide-over-menu')
-    if (offscreenVisibleElement && !offscreenVisibleElement.contains(event.target as Node)) {
+    if (offscreenVisibleElement && !offscreenVisibleElement.contains(event.target)) {
       offscreenVisible.value = false
       document.body.style.overflow = ''
     }

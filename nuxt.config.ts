@@ -41,8 +41,19 @@ export default defineNuxtConfig({
     '@nuxtjs/turnstile',
   ],
   i18n: {
-    locales: ['en-us', 'es-es'],
-    defaultLocale: 'en-us',
+    baseUrl: process.env.BASE_URL,
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en-US',
+    locales: [
+      {
+        code: 'en-us',
+        iso: 'en-US',
+      },
+      {
+        code: 'es-es',
+        iso: 'es-ES',
+      },
+    ],
   },
   prismic: {
     endpoint: apiEndpoint || repositoryName,
