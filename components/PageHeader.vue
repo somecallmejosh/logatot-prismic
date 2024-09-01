@@ -142,7 +142,7 @@
                   </nav>
                 </div>
               </div>
-              <div class="flex justify-between flex-shrink-0 px-4 py-4">
+              <div class="flex items-center justify-between flex-shrink-0 px-4 py-4">
                 <p class="font-semibold">
                   {{ t('language') }}
                 </p>
