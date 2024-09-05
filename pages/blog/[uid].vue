@@ -46,7 +46,7 @@
         {{ page?.data.tite }}
       </h1>
       <p class="text-sm opacity-70">
-        {{ t('posted') }} {{ useFormatDate(page?.data.publish_date) }} {{ t('by') }} {{ page?.data.author }}
+        {{ t('posted') }} {{ useFormatDate(page?.data.publish_date) }}<br>{{ t('by') }} {{ page?.data.author }}
       </p>
     </div>
     <SliceZone

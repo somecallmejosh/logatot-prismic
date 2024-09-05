@@ -43,7 +43,9 @@ interface BlogDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   author: prismic.SelectField<
-    "Amanda Goodwin, CEO" | "Nick Molik, CRO" | "Cristine Trayner",
+    | "Amanda Goodwin, CEO"
+    | "Nick Molik, CRO"
+    | "Cristine Trayner, Customer Service Lead",
     "filled"
   >;
 
