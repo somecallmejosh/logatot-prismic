@@ -11,6 +11,43 @@ type BlogDocumentDataSlicesSlice = RichTextSlice;
  */
 interface BlogDocumentData {
   /**
+   * Title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.tite
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tite: prismic.KeyTextField;
+
+  /**
+   * Publish Date field in *Blog*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.publish_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  publish_date: prismic.DateField;
+
+  /**
+   * Author field in *Blog*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Amanda Goodwin, CEO
+   * - **API ID Path**: blog.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  author: prismic.SelectField<
+    "Amanda Goodwin, CEO" | "Nick Molik, CRO" | "Cristine Trayner",
+    "filled"
+  >;
+
+  /**
    * Slice Zone field in *Blog*
    *
    * - **Field Type**: Slice Zone

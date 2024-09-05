@@ -6,11 +6,38 @@
   "status": true,
   "json": {
     "Main": {
+      "tite": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
       "uid": {
         "config": {
           "label": "UID"
         },
         "type": "UID"
+      },
+      "publish_date": {
+        "type": "Date",
+        "config": {
+          "label": "Publish Date",
+          "placeholder": ""
+        }
+      },
+      "author": {
+        "type": "Select",
+        "config": {
+          "label": "Author",
+          "placeholder": "",
+          "options": [
+            "Amanda Goodwin, CEO",
+            "Nick Molik, CRO",
+            "Cristine Trayner"
+          ],
+          "default_value": "Amanda Goodwin, CEO"
+        }
       },
       "slices": {
         "type": "Slices",
