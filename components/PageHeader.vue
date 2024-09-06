@@ -35,10 +35,12 @@
 <i18n lang="json">
 {
   "en": {
-    "language": "Select a Language"
+    "language": "Select a Language",
+    "tagline": "Use Your Voice!"
   },
   "es": {
-    "language": "Seleccionar un Idioma"
+    "language": "Seleccionar un Idioma",
+    "tagline": "¡Usa tu Voz!"
   }
 }
 </i18n>
@@ -154,16 +156,21 @@
   </div>
   <header class="bg-white shadow">
     <Bounded class="flex justify-between py-6 space-x-4">
-      <NuxtLink
-        :to="localePath('index')"
-        class="flex items-center flex-1"
-      >
-        <Logo class="h-12 text-blue-600" />
-        <span class="sr-only">Home Page</span>
-      </NuxtLink>
+      <div class="flex items-center gap-4">
+        <NuxtLink
+          :to="localePath('index')"
+          class="flex items-center flex-1 -translate-y-[10px]"
+        >
+          <Logo class="h-12 text-blue-600" />
+          <span class="sr-only">Home Page</span>
+        </NuxtLink>
+        <p class="text-xs font-bold tracking-widest uppercase">
+          {{ t('tagline') }}
+        </p>
+      </div>
 
       <ul
-        class="items-center hidden gap-4 lg:flex"
+        class="items-center hidden gap-4 xl:flex"
       >
         <li
           v-for="item in settings.data.main_nav"
@@ -180,7 +187,7 @@
       <div class="flex items-center gap-6">
         <AuthLinks class="hidden lg:flex" />
         <LocaleSelection class="hidden lg:flex" />
-        <button class="lg:hidden">
+        <button class="xl:hidden">
           <IconMenu
             class="w-6 h-6 text-blue-500"
             @click="toggleOffscreen"

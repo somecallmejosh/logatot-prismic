@@ -9,9 +9,9 @@ const props = defineProps(['slice']);
     <template v-if="slice.variation === 'default'">
       <div class="relative isolate">
         <div class="overflow-hidden">
-          <div class="px-6 pt-12 pb-16 mx-auto max-w-7xl lg:px-0 md:pt-24 lg:pt-32">
+          <div class="px-6 pt-12 pb-16 mx-auto max-w-7xl xl:px-0 md:pt-24 lg:pt-32">
             <div class="max-w-2xl mx-auto gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-              <div class="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl prose prose-headings:font-display prose-h1:text-4xl md:prose-h1:text-6xl prose-em:text-blue-600 prose-em:not-italic prose-em:block">
+              <div class="relative w-full max-w-xl prose lg:shrink-0 xl:max-w-2xl prose-headings:font-display prose-h1:text-4xl md:prose-h1:text-6xl prose-em:text-blue-600 prose-em:not-italic prose-em:block">
                 <prismic-rich-text
                   :field="slice.primary.headline"
                   class="font-bold"
@@ -23,7 +23,7 @@ const props = defineProps(['slice']);
                 <div class="flex items-center mt-10 gap-x-6 not-prose">
                   <PrismicLink
                     :field="slice.primary.call_to_action_1"
-                    class="border-2 rounded-md font-bold inline-flex gap-1 items-center transition-all duration-150 ease-in-out focus:outline-none focus-visible:outline-2 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-600 border-blue-600 bg-blue-600 text-white hover:bg-blue-500 hover:border-blue-500 px-3 py-1"
+                    class="inline-flex items-center gap-1 px-3 py-1 font-bold text-white transition-all duration-150 ease-in-out bg-blue-600 border-2 border-blue-600 rounded-md focus:outline-none focus-visible:outline-2 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-600 hover:bg-blue-500 hover:border-blue-500"
                   >
                     {{ slice.primary.call_to_action_1_text }}
                   </PrismicLink>
