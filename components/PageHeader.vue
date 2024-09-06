@@ -142,11 +142,9 @@
                   </nav>
                 </div>
               </div>
-              <div class="flex items-center justify-between flex-shrink-0 px-4 py-4">
-                <p class="font-semibold">
-                  {{ t('language') }}
-                </p>
+              <div class="flex items-center flex-shrink-0 gap-2 px-4 py-4">
                 <LocaleSelection />
+                <p>{{ t('language') }}</p>
               </div>
             </div>
           </div>
