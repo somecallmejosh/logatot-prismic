@@ -1,0 +1,29 @@
+[[redirects]]
+  from = "/csea-voice"
+  to = "https://app.logatot.com/csea-voice"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/nafcc"
+  to = "https://app.logatot.com/nafcc"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/users/sign_up"
+  to = "https://app.logatot.com/users/sign_up"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/users/sign_in"
+  to = "https://app.logatot.com/users/sign_in"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/logins"
+  to = "https://app.logatot.com/logins"
+  status = 301
+  force = false
