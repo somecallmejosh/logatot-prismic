@@ -1,6 +1,16 @@
+<i18n lang="json">
+{
+  "en": {
+    "title": "Video Learning Library"
+  },
+  "es": {
+    "title": "Biblioteca de aprendizaje de video"
+  }
+}
+</i18n>
 <script setup>
   import { components } from '~/slices'
-  const { locale } = useI18n({
+  const { locale, t } = useI18n({
     useScope: 'local'
   })
   const prismic = usePrismic()
@@ -20,10 +30,13 @@
 
 <template>
   <Bounded class="py-12 space-y-12 lg:py-24">
-    <div class="space-y-2">
-      <NuxtLink :to="localePath('/video-learning-library')">
-        Video Learning Library
-      </NuxtLink>
+    <div class="space-y-6 lg:space-y-12">
+      <breadcrumbs
+        :links="[
+          { text: t('title'), to: localePath('/video-learning-library') },
+          { text: page?.data.title, to: localePath(`/video-learning-library/${page?.uid}`) },
+        ]"
+      />
       <h1 class="text-5xl font-bold font-display">
         {{ page?.data.title }}
       </h1>

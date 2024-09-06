@@ -27,7 +27,7 @@
       <li
         v-for="(entry, index ) in blog"
         :key="index"
-        class="relative p-8 space-y-4 transition-all duration-150 rounded-lg lg:p-12 hover:bg-blue-50 bg-blue-50/40 hover:shadow group"
+        class="relative p-8 space-y-4 transition-all duration-150 rounded-lg lg:p-12 hover:bg-blue-50 bg-blue-50/30 hover:shadow group"
       >
         <div class="space-y-2">
           <h2 class="text-xl font-bold font-display group-hover:underline">

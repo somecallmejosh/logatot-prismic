@@ -12,7 +12,7 @@
   }
 }
 </i18n>
-<script setup lang="ts">
+<script setup>
   import { components } from '~/slices'
   import { useFormatDate } from '~/composables/useFormatDate'
   const { locale, t } = useI18n({
@@ -20,8 +20,8 @@
   })
   const prismic = usePrismic()
   const route = useRoute()
-  const { data: page } = useAsyncData(route.params.uid as string, () =>
-    prismic.client.getByUID('blog', route.params.uid as string, { lang: locale.value })
+  const { data: page } = useAsyncData(route.params.uid, () =>
+    prismic.client.getByUID('blog', route.params.uid, { lang: locale.value })
   )
 
   useSeoMeta({
@@ -42,6 +42,13 @@
 <template>
   <div>
     <div class="w-full max-w-[65ch] mx-auto mt-16 lg:mt-24 px-6 sm:px-0 md:px-0 space-y-4 -mb-16">
+      <breadcrumbs
+        :links="[
+          { text: 'Blog', to: localePath('/blog') },
+          { text: page?.data.tite, to: localePath(`/blog/${page?.uid}`) },
+        ]"
+        class="mb-10"
+      />
       <h1 class="text-4xl font-bold font-display">
         {{ page?.data.tite }}
       </h1>
