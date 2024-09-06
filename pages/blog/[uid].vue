@@ -41,7 +41,7 @@
 
 <template>
   <div>
-    <div class="w-full max-w-[65ch] mx-auto mt-16 lg:mt-24 px-6 sm:px-0 md:px-0 space-y-4 -mb-16">
+    <div class="w-full max-w-[65ch] mx-auto mt-16 lg:mt-24 px-6 sm:px-0 md:px-0 space-y-4 -mb-6 lg:-mb-16">
       <breadcrumbs
         :links="[
           { text: 'Blog', to: localePath('/blog') },
@@ -62,8 +62,8 @@
       :components="components"
       class="w-full space-y-16"
     />
-    <div class="mx-auto -mt-16 prose">
-      <p>{{ t('salutation') }}<br>{{ page?.data.author }}</p>
+    <div class="px-6 mx-auto -mt-4 prose lg:-mt-16 lg:px-0">
+      <p>{{ t('salutation') }}<br><em>{{ page?.data.author }}</em></p>
     </div>
   </div>
 </template>
