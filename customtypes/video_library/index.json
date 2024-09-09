@@ -19,6 +19,13 @@
         },
         "type": "UID"
       },
+      "order": {
+        "type": "Number",
+        "config": {
+          "label": "Page Order",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

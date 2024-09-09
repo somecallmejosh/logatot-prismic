@@ -18,6 +18,15 @@
     useScope: 'local'
   })
 
+  // order videoLibrary by order number
+
+  const orderedListByNumber = computed(() => {
+    return videoLibrary.value.slice().sort((a, b) => {
+      return a.data.order - b.data.order
+    })
+  })
+
+
   useSeoMeta({
     title: () => t('title'),
     description: () => t('description'),
@@ -32,7 +41,7 @@
     </h1>
     <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <li
-        v-for="(video, index ) in videoLibrary"
+        v-for="(video, index ) in orderedListByNumber"
         :key="index"
         class="relative p-8 space-y-8 transition-all duration-150 rounded-lg lg:p-12 hover:bg-blue-50 bg-blue-50/30 hover:shadow group"
       >

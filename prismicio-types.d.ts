@@ -514,6 +514,17 @@ interface VideoLibraryDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Page Order field in *Video Library*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_library.order
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  order: prismic.NumberField;
+
+  /**
    * Slice Zone field in *Video Library*
    *
    * - **Field Type**: Slice Zone
